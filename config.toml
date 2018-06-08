@@ -79,15 +79,15 @@ disable404 = true
         enable = true
         title = "Education"
 
-        # [[params.education.list]]
-        # degree = "MSc in Computer Science"
-        # college = "University of London"
-        # dates = "2006 - 2010"
+        [[params.education.list]]
+        degree = "BS Electrical Engineering"
+        college = "South Dakota State University"
+        dates = "2012 - 2017"
 
-        # [[params.education.list]]
-        # degree = "BSc in Applied Mathematics"
-        # college = "Bristol University"
-        # dates = "2007 - 2011"
+        [[params.education.list]]
+        degree = "Minor Software Engineering"
+        college = "South Dakota State University"
+        dates = "2012 - 2017"
 
     # Languages section
     # [params.language]
@@ -137,11 +137,58 @@ disable404 = true
         icon = "fa-briefcase"
         title = "Experiences"
 
-        # [[params.jobs.list]]
-        # position = "Lead Developer"
-        # dates = "2015 - Present"
-        # company = "Startup Hubs, San Francisco"
-        # details = "**Describe your role here** lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo.\n\n Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+        [[params.jobs.list]]
+        position = "Student Intern"
+        dates = "05.2016 - 05.2017"
+        company = "Hardware Design at Daktronics"
+        details = """
+- Developed C++ code for communication with I2C sensors from a Linux system.
+- Developed a C++ library that simplifies usage of librrd, a C library for
+creating, updating, and using RRDs (Round Robin Databases).
+- Used Test Driven Development to implement library, used CxxTest Framework.
+        """
+
+        [[params.jobs.list]]
+        position = "Student Technology Fellow"
+        dates = "08.2013 - 05.2016"
+        company = "Classroom Technology Services at SDSU"
+        details = """
+- Fixed issues with Windows computers related to networking or hardware.
+- Installed smartboards, projectors, computers, audio systems and teaching stations.
+        """
+
+        [[params.jobs.list]]
+        position = "Research Assistant"
+        dates = "03.2013 - 05.2016"
+        company = "EECS Department at SDSU"
+        details = """
+- First undergraduate authorized to use the Scanning Electron Microscope.
+- Built and helped design a vacuum sputtering deposition system.
+- Installed many complex systems: heater with feedback control, gas flow
+control, vacuum gauges, rough pump, turbo pump, and magnetron sputtering
+sources.
+        """
+
+        [[params.jobs.list]]
+        position = "Software Developer Resident"
+        dates = "06.2015 - 12.2015"
+        company = "Subcontractor for Earth Resources Observation Systems"
+        details = """
+- Wrote python code utilized in a production system used by scientists
+worldwide.
+- Member of a small team using agile development methods.
+- Researched upcoming technologies and techniques: Hadoop, Docker, map reduce,
+  Microservices, and distributed processing systems.
+        """
+
+        [[params.jobs.list]]
+        position = "Sputtering System Lab Technician"
+        dates = "09.2014 - 02.2015"
+        company = "NASCENTechnology"
+        details = """
+- Operated Ion Beam Assisted Deposition System to produce Flyback transformers.
+- Repaired or installed components on the sputtering system.
+        """
 
     # Projects section
     [params.projects]
@@ -171,7 +218,7 @@ disable404 = true
     # Please keep the original attribution link when using for your own project.
     # If you'd like to use the template without the attribution,
     # you can check out other license options via template author's website: themes.3rdwavemedia.com
-    # 
+    #
     # As for Hugo port you may rewrite the "Ported for..." line with setting your name below.
 
     [params.footer]
