@@ -125,17 +125,34 @@ disable404 = true
     # You may use markdown in summary, details and intro fields. But don't overdose, it's resume!:)
 
     # Summary section
-    # [params.summary]
-    #     enable = true
-    #     icon = "fa-user"
-    #     title = "Career Profile"
-    #     summary = "**Summarise your career here** lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu."
+    [params.summary]
+        enable = true
+        icon = "fa-user"
+        title = "Career Profile"
+        summary = """
+- Recent Electrical Engineer graduate with honors distinction.
+- Worked as independent contractor twice during college.
+- Experience working as software engineer for two years during college.
+- Learned Android, Python, Git and Linux command line tools from on-line tutorials/videos.
+        """
 
     # Experiences section
     [params.experiences]
         enable = true
         icon = "fa-briefcase"
         title = "Experiences"
+
+        [[params.jobs.list]]
+        position = "Software Engineer 1"
+        dates = "05.2017 - PRESENT"
+        company = "System Team at Vaddio"
+        details = """
+- Working with FPGA and python developers to create an integrated embedded
+system that routes audio and video signals in professionally built AV systems.
+- I help to build a custom Linux distribution from the '/' up with the Yocto Project.
+- Our team uses many other tools during development such as Jenkins,  Jira,
+  Git, Bitbake, and Puppet.
+        """
 
         [[params.jobs.list]]
         position = "Student Intern"
