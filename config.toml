@@ -214,10 +214,26 @@ worldwide.
         title = "Projects"
         # intro = "**You can list your side projects or open source libraries in this section.** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus"
 
-        # [[params.projects.list]]
-        # title = "Hugrid"
-        # url = "https://github.com/aerohub/hugrid"
-        # tagline = "Grid theme for Hugo. It's a kind of boilerplate to perform anyone or anything quickly. Portfolio, collection, bookmarks, contacts and so on"
+        [[params.projects.list]]
+        title = "Hardware Integrated Prototyping Environment at SDSU Engineering Expo"
+        url = "http://academic.genetzky.us/project/sdsu/2017-hipe/"
+        tagline = "Nathan Genetzky, Jordan Ulmer, Tanner Johnson (SDSU, 2017)"
+
+        [[params.projects.list]]
+        title = "Design and Verification of a SPI to JTAG Interface Adapter"
+        url = "http://academic.genetzky.us/publication/sdsu/2017-05-05-ee492-spi2jtag/"
+        tagline = "Nathan Genetzky, Jordan Ulmer (SDSU, 2017)"
+
+        [[params.projects.list]]
+        title = "Interactive User Interface with PIC18 Microcontroller"
+        url = "http://academic.genetzky.us/publication/sdsu/2015-05-01-ee347-interative-ui-with-pic-microcontroller/"
+        tagline = "Nathan Genetzky, Drake Jeno (SDSU, 2017)"
+
+        [[params.projects.list]]
+        title = "Particle Projects"
+        url = "https://github.com/NGenetzky/particle-projects"
+        tagline = "Firmware for micro controllers sold by particle.io for use with wifi or cellular cloud devices."
+
 
     # Skills section
     [params.skills]
