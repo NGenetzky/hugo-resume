@@ -90,21 +90,34 @@ disable404 = true
         dates = "2012 - 2017"
 
     # Languages section
-    # [params.language]
-    #     enable = true
-    #     title = "Languages"
+    [params.language]
+        enable = true
+        title = "Languages"
 
-    #     [[params.language.list]]
-    #     language = "English"
-    #     level = "Native"
+        [[params.language.list]]
+        language = "Python"
+        level = "~3 years"
 
-    #     [[params.language.list]]
-    #     language = "French"
-    #     level = "Professional"
+        [[params.language.list]]
+        language = "Bash"
+        level = "~3 years"
 
-    #     [[params.language.list]]
-    #     language = "Russian"
-    #     level = "Professional"
+        [[params.language.list]]
+        language = "Cpp"
+        level = "~3 years"
+
+        [[params.language.list]]
+        language = "Verilog"
+        level = "~2 years"
+
+        [[params.language.list]]
+        language = "C"
+        level = "~1 year"
+
+        [[params.language.list]]
+        language = "Java for Android"
+        level = "~1 year"
+
 
     # Interests section
     [params.interests]
@@ -242,8 +255,29 @@ worldwide.
         title = "Skills & Proficiency"
 
         [[params.skills.list]]
-        skill = "Python"
+        skill = "Terminal Workflow (Vim, GNU tools, shell scripting)"
         level = "50%"
+
+        [[params.skills.list]]
+        skill = "Developer Tools (Docker, Jenkins, Git)"
+        level = "50%"
+
+        [[params.skills.list]]
+        skill = "Yocto (Build System, Embedded Distro, BSP Support)"
+        level = "50%"
+
+        [[params.skills.list]]
+        skill = "Linux Kernel (Drivers, Config, BSP)"
+        level = "50%"
+
+        [[params.skills.list]]
+        skill = "Python Middleware"
+        level = "50%"
+
+        [[params.skills.list]]
+        skill = "FPGA Development (SW Interface, Reusable Verilog, Automated Builds)"
+        level = "50%"
+
 
     # Footer section
 
