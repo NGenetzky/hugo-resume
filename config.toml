@@ -4,7 +4,7 @@ baseurl = "/"
 languageCode = "en-us"
 title = "Nathan Genetzky Resume"
 theme = "hugo-orbit-theme"
-googleAnalytics = "UA-XXXXXXX-Y"
+googleAnalytics = "UA-115633517-2"
 
 # Do not build files for websites. Need them? Set to false
 disableRSS = true
