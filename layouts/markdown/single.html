@@ -1,0 +1,70 @@
+<head><title>{{$.Page.Params.title}}</title></head>
+<pre><code>
+# {{ $.Site.Params.profile.name }}
+
+{{ $.Site.Params.profile.tagline }}
+
+
+## {{ $.Site.Params.summary.title }}
+
+{{ $.Site.Params.summary.summary }}
+
+## Contact
+{{ range $.Site.Params.contact.list }}
+- {{.title}}
+{{- end }}
+
+
+## {{ $.Site.Params.education.title }}
+
+{{- range $.Site.Params.education.list }}
+
+### {{.degree}}
+
+{{.college}} ({{.dates}})
+
+{{- end }}
+
+## {{ $.Site.Params.experiences.title }}
+
+{{- range $.Site.Params.jobs.list }}
+
+### {{.position}}
+
+{{.company}} ({{.dates}})
+
+{{.details}}
+
+{{- end }}
+
+
+## {{ $.Site.Params.projects.title }}
+
+{{- range $.Site.Params.projects.list }}
+
+### {{.title}}
+
+- {{.tagline}}
+- {{.url}}
+
+{{- end }}
+
+
+## {{ $.Site.Params.skills.title }}
+{{ range $.Site.Params.skills.list }}
+- {{.skill}} ({{.level}})
+{{- end }}
+
+
+## Lauguages
+{{ range $.Site.Params.language.list }}
+- {{.language}} ({{.level}})
+{{- end }}
+
+
+## {{ $.Site.Params.interests.title }}
+{{ range $.Site.Params.interests.list }}
+- {{.interest}}
+{{- end }}
+
+</code></pre>
