@@ -154,8 +154,8 @@ p {
 }
 .main-wrapper {
   background: #fff;
-  padding: 60px;
-  padding-right: 300px;
+  padding: 40px;
+  padding-right: 260px;
   page-break-before: always;
 }
 .main-wrapper .section-title {
@@ -165,7 +165,7 @@ p {
   color: #2d7788;
   position: relative;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .main-wrapper .section-title .fa {
   width: 30px;
@@ -189,11 +189,11 @@ p {
   top: -2px;
 }
 .main-wrapper .section {
-  margin-bottom: 60px;
+  margin-bottom: 10px;
   page-break-inside: avoid;
 }
 .main-wrapper .experiences-section .item {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .main-wrapper .upper-row {
   position: relative;
@@ -224,10 +224,10 @@ p {
   margin-bottom: 5px;
 }
 .main-wrapper .projects-section .intro {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 .main-wrapper .projects-section .item {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 .skillset .item {
   margin-bottom: 15px;
@@ -236,7 +236,7 @@ p {
 .skillset .level-title {
   font-size: 14px;
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
 }
 .skillset .level-bar {
   height: 12px;
@@ -247,8 +247,8 @@ p {
   background: #7bc2d3 !important;
 }
 .footer {
-  padding: 30px;
-  padding-top: 60px;
+  padding: 0px;
+  padding-top: 0px;
 }
 .footer .copyright {
   line-height: 1.6;
