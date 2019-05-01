@@ -24,7 +24,8 @@ disable404 = true
     # are available. Also the source LESS files are included so
     # it’s quick and easy to change the styling and colour scheme.
 
-    styles = "styles.css"
+    # styles = "styles.css"
+    styles = "styles-1-compact.css"
 
 # Sidebar sections
 
@@ -95,24 +96,24 @@ disable404 = true
         title = "Languages"
 
         [[params.language.list]]
+        language = "Cpp"
+        level = "~5 years"
+
+        [[params.language.list]]
+        language = "Bash"
+        level = "~4 years"
+
+        [[params.language.list]]
         language = "Python"
         level = "~3 years"
 
         [[params.language.list]]
-        language = "Bash"
-        level = "~3 years"
-
-        [[params.language.list]]
-        language = "Cpp"
-        level = "~3 years"
+        language = "C"
+        level = "~2 year"
 
         [[params.language.list]]
         language = "Verilog"
         level = "~2 years"
-
-        [[params.language.list]]
-        language = "C"
-        level = "~1 year"
 
         [[params.language.list]]
         language = "Java for Android"
@@ -168,6 +169,16 @@ system that routes audio and video signals in professionally built AV systems.
         """
 
         [[params.jobs.list]]
+        position = "Software Engineer"
+        dates = "11.2018 - PRESENT"
+        company = "Dojo Five"
+        details = """
+- Develop embedded software for Particle, Nordic, and STM32 microcontrollers
+- Utilized custom hardware with the Particle platform for a custom door access solution
+- Developed with NRF52 SDK to create devices in a complex robotic system with BLE services
+        """
+
+        [[params.jobs.list]]
         position = "Student Intern"
         dates = "05.2016 - 05.2017"
         company = "Hardware Design at Daktronics"
@@ -182,7 +193,7 @@ creating, updating, and using RRDs (Round Robin Databases).
         position = "Student Technology Fellow"
         dates = "08.2013 - 05.2016"
         company = "Classroom Technology Services at SDSU"
-        details = """
+        _details = """
 - Fixed issues with Windows computers related to networking or hardware.
 - Installed smartboards, projectors, computers, audio systems and teaching stations.
         """
@@ -191,7 +202,7 @@ creating, updating, and using RRDs (Round Robin Databases).
         position = "Research Assistant"
         dates = "03.2013 - 05.2016"
         company = "EECS Department at SDSU"
-        details = """
+        _details = """
 - First undergraduate authorized to use the Scanning Electron Microscope.
 - Built and helped design a vacuum sputtering deposition system.
 - Installed many complex systems: heater with feedback control, gas flow
@@ -203,7 +214,7 @@ sources.
         position = "Software Developer Resident"
         dates = "06.2015 - 12.2015"
         company = "Subcontractor for Earth Resources Observation Systems"
-        details = """
+        _details = """
 - Wrote python code utilized in a production system used by scientists
 worldwide.
 - Member of a small team using agile development methods.
@@ -215,7 +226,7 @@ worldwide.
         position = "Sputtering System Lab Technician"
         dates = "09.2014 - 02.2015"
         company = "NASCENTechnology"
-        details = """
+        _details = """
 - Operated Ion Beam Assisted Deposition System to produce Flyback transformers.
 - Repaired or installed components on the sputtering system.
         """
@@ -244,7 +255,7 @@ worldwide.
 
         [[params.projects.list]]
         title = "Particle Projects"
-        url = "https://github.com/NGenetzky/particle-projects"
+        url = "http://academic.genetzky.us/project/particle-projects/"
         tagline = "Firmware for micro controllers sold by particle.io for use with wifi or cellular cloud devices."
 
 
@@ -255,28 +266,28 @@ worldwide.
         title = "Skills & Proficiency"
 
         [[params.skills.list]]
+        skill = "Yocto (Build System, Embedded Distro, BSP Support)"
+        level = "70%"
+
+        [[params.skills.list]]
+        skill = "Developer Tools (Docker, Jenkins, Git)"
+        level = "60%"
+
+        [[params.skills.list]]
         skill = "Terminal Workflow (Vim, GNU tools, shell scripting)"
         level = "50%"
 
         [[params.skills.list]]
-        skill = "Developer Tools (Docker, Jenkins, Git)"
-        level = "50%"
-
-        [[params.skills.list]]
-        skill = "Yocto (Build System, Embedded Distro, BSP Support)"
-        level = "50%"
-
-        [[params.skills.list]]
         skill = "Linux Kernel (Drivers, Config, BSP)"
-        level = "50%"
+        level = "45%"
 
         [[params.skills.list]]
         skill = "Python Middleware"
-        level = "50%"
+        level = "45%"
 
         [[params.skills.list]]
         skill = "FPGA Development (SW Interface, Reusable Verilog, Automated Builds)"
-        level = "50%"
+        level = "30%"
 
 
     # Footer section
