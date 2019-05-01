@@ -95,24 +95,24 @@ disable404 = true
         title = "Languages"
 
         [[params.language.list]]
+        language = "Cpp"
+        level = "~5 years"
+
+        [[params.language.list]]
+        language = "Bash"
+        level = "~4 years"
+
+        [[params.language.list]]
         language = "Python"
         level = "~3 years"
 
         [[params.language.list]]
-        language = "Bash"
-        level = "~3 years"
-
-        [[params.language.list]]
-        language = "Cpp"
-        level = "~3 years"
+        language = "C"
+        level = "~2 year"
 
         [[params.language.list]]
         language = "Verilog"
         level = "~2 years"
-
-        [[params.language.list]]
-        language = "C"
-        level = "~1 year"
 
         [[params.language.list]]
         language = "Java for Android"
@@ -265,28 +265,28 @@ worldwide.
         title = "Skills & Proficiency"
 
         [[params.skills.list]]
+        skill = "Yocto (Build System, Embedded Distro, BSP Support)"
+        level = "70%"
+
+        [[params.skills.list]]
+        skill = "Developer Tools (Docker, Jenkins, Git)"
+        level = "60%"
+
+        [[params.skills.list]]
         skill = "Terminal Workflow (Vim, GNU tools, shell scripting)"
         level = "50%"
 
         [[params.skills.list]]
-        skill = "Developer Tools (Docker, Jenkins, Git)"
-        level = "50%"
-
-        [[params.skills.list]]
-        skill = "Yocto (Build System, Embedded Distro, BSP Support)"
-        level = "50%"
-
-        [[params.skills.list]]
         skill = "Linux Kernel (Drivers, Config, BSP)"
-        level = "50%"
+        level = "45%"
 
         [[params.skills.list]]
         skill = "Python Middleware"
-        level = "50%"
+        level = "45%"
 
         [[params.skills.list]]
         skill = "FPGA Development (SW Interface, Reusable Verilog, Automated Builds)"
-        level = "50%"
+        level = "30%"
 
 
     # Footer section
