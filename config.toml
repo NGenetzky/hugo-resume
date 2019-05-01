@@ -254,7 +254,7 @@ worldwide.
 
         [[params.projects.list]]
         title = "Particle Projects"
-        url = "https://github.com/NGenetzky/particle-projects"
+        url = "http://academic.genetzky.us/project/particle-projects/"
         tagline = "Firmware for micro controllers sold by particle.io for use with wifi or cellular cloud devices."
 
 
