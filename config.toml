@@ -168,6 +168,16 @@ system that routes audio and video signals in professionally built AV systems.
         """
 
         [[params.jobs.list]]
+        position = "Software Engineer"
+        dates = "11.2018 - PRESENT"
+        company = "Dojo Five"
+        details = """
+- Develop embedded software for Particle, Nordic, and STM32 microcontrollers
+- Utilized custom hardware with the Particle platform for a custom door access solution
+- Developed with NRF52 SDK to create devices in a complex robotic system with BLE services
+        """
+
+        [[params.jobs.list]]
         position = "Student Intern"
         dates = "05.2016 - 05.2017"
         company = "Hardware Design at Daktronics"
