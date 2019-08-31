@@ -1,0 +1,18 @@
+
+# https://gohugo.io/getting-started/configuration/
+# Page settings
+
+baseurl = "/"
+languageCode = "en-us"
+title = "Nathan Genetzky Resume"
+theme = "hugo-orbit-theme"
+googleAnalytics = "UA-115633517-2"
+
+# Do not build files for websites. Need them? Set to false
+disableRSS = true
+disableSitemap = false
+disable404 = true
+disableKinds = [
+    "taxonomy",
+    "taxonomyTerm"
+]
