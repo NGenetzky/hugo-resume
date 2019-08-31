@@ -1,16 +1,16 @@
 {
-  "name": "Your Name",
+  "name": "Nathan Genetzky",
   "meta": {
     "format": "FRESH@0.6.0",
     "version": "0.1.0"
   },
   "info": {
     "label": "Software Engineer",
-    "brief": "- Recent Electrical Engineer graduate with honors distinction.\n - Worked as independent contractor twice during college.\n - Experience working as software engineer for two years during college.\n - Learned Android, Python, Git and Linux command line tools from on-line tutorials/videos.",
+    "brief": "- Recent Electrical Engineer graduate with honors distinction.\n- Worked as independent contractor twice during college.\n- Experience working as software engineer for two years during college.\n- Learned Android, Python, Git and Linux command line tools from on-line tutorials/videos.",
     "image": ""
   },
   "contact": {
-    "website": "nathan.genetzky.us",
+    "website": "http://nathan.genetzky.us",
     "phone": "",
     "email": "Nathan@Genetzky.us",
     "other": []
@@ -34,7 +34,7 @@
     "summary": "Software and Hardware",
     "history": [
       {
-        "employer": "Most Recent Employer",
+        "employer": "Vaddio",
         "url": "http://vaddio.com",
         "position": "Software Engineer 1",
         "summary": "",
@@ -48,13 +48,13 @@
         ]
       },
       {
-        "employer": "Previous Employer",
-        "url": "http://employer-website.com",
+        "employer": "Dojofive",
+        "url": "https://dojofive.com/",
         "position": "Software Engineer",
         "summary": "",
-        "start": "2009-07",
-        "end": "2013-10",
+        "start": "2017-07",
         "keywords": [
+          "C++"
         ],
         "highlights": [
           "Develop embedded software for Particle, Nordic, and STM32 microcontrollers",
@@ -146,7 +146,7 @@
       },
       {
         "name": "Developer Tools (Docker, Jenkins, Git)",
-        "level": "intermediate",
+        "level": "60%",
         "skills": [
           "Ansible",
           "Docker",
