@@ -1,17 +1,3 @@
-# Page settings
-
-baseurl = "/"
-languageCode = "en-us"
-title = "Nathan Genetzky Resume"
-theme = "hugo-orbit-theme"
-googleAnalytics = "UA-115633517-2"
-
-# Do not build files for websites. Need them? Set to false
-disableRSS = true
-disableSitemap = false
-disable404 = true
-
-[params]
 
 # Meta
     description = "Resume generated with Hugo for Nathan Genetzky"
@@ -30,108 +16,108 @@ disable404 = true
 # Sidebar sections
 
     # Profile section
-    [params.profile]
+    [profile]
         name = "Nathan Genetzky"
         tagline = "Software and Hardware"
         # avatar = "profile.png"
 
     # Contact section
-    [params.contact]
+    [contact]
         enable = true
 
-        [[params.contact.list]]
+        [[contact.list]]
         class = "email"
         icon = "fa-envelope"
         url = "mailto: nathan@genetzky.us"
         title = "nathan@genetzky.us"
 
-        # [[params.contact.list]]
+        # [[contact.list]]
         # class = "phone"
         # icon = "fa-phone"
         # url = "tel:+1234567890"
         # title = "+1234567890"
 
-        [[params.contact.list]]
+        [[contact.list]]
         class = "website"
         icon = "fa-globe"
         url = "http://academic.genetzky.us"
         title = "academic.genetzky.us"
 
-        [[params.contact.list]]
+        [[contact.list]]
         class = "linkedin"
         icon = "fa-linkedin"
         url = "https://www.linkedin.com/in/genetzky"
         title = "linkedin.com/in/genetzky"
 
-        [[params.contact.list]]
+        [[contact.list]]
         class = "github"
         icon = "fa-github"
         url = "https://github.com/NGenetzky"
         title = "github.com/NGenetzky"
 
-        [[params.contact.list]]
+        [[contact.list]]
         class = "twitter"
         icon = "fa-twitter"
         url = "https://twitter.com/NGenetzky"
         title = "@NGenetzky"
 
     # Education section
-    [params.education]
+    [education]
         enable = true
         title = "Education"
 
-        [[params.education.list]]
+        [[education.list]]
         degree = "BS Electrical Engineering"
         college = "South Dakota State University"
         dates = "2012 - 2017"
 
-        [[params.education.list]]
+        [[education.list]]
         degree = "Minor Software Engineering"
         college = "South Dakota State University"
         dates = "2012 - 2017"
 
     # Languages section
-    [params.language]
+    [language]
         enable = true
         title = "Languages"
 
-        [[params.language.list]]
+        [[language.list]]
         language = "Cpp"
         level = "~5 years"
 
-        [[params.language.list]]
+        [[language.list]]
         language = "Bash"
         level = "~4 years"
 
-        [[params.language.list]]
+        [[language.list]]
         language = "Python"
         level = "~3 years"
 
-        [[params.language.list]]
+        [[language.list]]
         language = "C"
         level = "~2 year"
 
-        [[params.language.list]]
+        [[language.list]]
         language = "Verilog"
         level = "~2 years"
 
-        [[params.language.list]]
+        [[language.list]]
         language = "Java for Android"
         level = "~1 year"
 
 
     # Interests section
-    [params.interests]
+    [interests]
         enable = true
         title = "Interests"
 
-        [[params.interests.list]]
+        [[interests.list]]
         interest = "Climbing"
 
-        [[params.interests.list]]
+        [[interests.list]]
         interest = "Snowboarding"
 
-        [[params.interests.list]]
+        [[interests.list]]
         interest = "Cooking"
 
 # Main body sections
@@ -139,7 +125,7 @@ disable404 = true
     # You may use markdown in summary, details and intro fields. But don't overdose, it's resume!:)
 
     # Summary section
-    [params.summary]
+    [summary]
         enable = true
         icon = "fa-user"
         title = "Career Profile"
@@ -151,12 +137,12 @@ disable404 = true
         """
 
     # Experiences section
-    [params.experiences]
+    [experiences]
         enable = true
         icon = "fa-briefcase"
         title = "Experiences"
 
-        [[params.jobs.list]]
+        [[jobs.list]]
         position = "Software Engineer 1"
         dates = "05.2017 - PRESENT"
         company = "System Team at Vaddio"
@@ -168,7 +154,7 @@ system that routes audio and video signals in professionally built AV systems.
   Git, Bitbake, and Puppet.
         """
 
-        [[params.jobs.list]]
+        [[jobs.list]]
         position = "Software Engineer"
         dates = "11.2018 - PRESENT"
         company = "Dojo Five"
@@ -178,7 +164,7 @@ system that routes audio and video signals in professionally built AV systems.
 - Developed with NRF52 SDK to create devices in a complex robotic system with BLE services
         """
 
-        [[params.jobs.list]]
+        [[jobs.list]]
         position = "Student Intern"
         dates = "05.2016 - 05.2017"
         company = "Hardware Design at Daktronics"
@@ -189,7 +175,7 @@ creating, updating, and using RRDs (Round Robin Databases).
 - Used Test Driven Development to implement library, used CxxTest Framework.
         """
 
-        [[params.jobs.list]]
+        [[jobs.list]]
         position = "Student Technology Fellow"
         dates = "08.2013 - 05.2016"
         company = "Classroom Technology Services at SDSU"
@@ -198,7 +184,7 @@ creating, updating, and using RRDs (Round Robin Databases).
 - Installed smartboards, projectors, computers, audio systems and teaching stations.
         """
 
-        [[params.jobs.list]]
+        [[jobs.list]]
         position = "Research Assistant"
         dates = "03.2013 - 05.2016"
         company = "EECS Department at SDSU"
@@ -210,7 +196,7 @@ control, vacuum gauges, rough pump, turbo pump, and magnetron sputtering
 sources.
         """
 
-        [[params.jobs.list]]
+        [[jobs.list]]
         position = "Software Developer Resident"
         dates = "06.2015 - 12.2015"
         company = "Subcontractor for Earth Resources Observation Systems"
@@ -222,7 +208,7 @@ worldwide.
   Microservices, and distributed processing systems.
         """
 
-        [[params.jobs.list]]
+        [[jobs.list]]
         position = "Sputtering System Lab Technician"
         dates = "09.2014 - 02.2015"
         company = "NASCENTechnology"
@@ -232,60 +218,60 @@ worldwide.
         """
 
     # Projects section
-    [params.projects]
+    [projects]
         enable = true
         icon = "fa-archive"
         title = "Projects"
         # intro = "**You can list your side projects or open source libraries in this section.** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus"
 
-        [[params.projects.list]]
+        [[projects.list]]
         title = "Hardware Integrated Prototyping Environment at SDSU Engineering Expo"
         url = "http://academic.genetzky.us/project/sdsu/2017-hipe/"
         tagline = "Nathan Genetzky, Jordan Ulmer, Tanner Johnson (SDSU, 2017)"
 
-        [[params.projects.list]]
+        [[projects.list]]
         title = "Design and Verification of a SPI to JTAG Interface Adapter"
         url = "http://academic.genetzky.us/publication/sdsu/2017-05-05-ee492-spi2jtag/"
         tagline = "Nathan Genetzky, Jordan Ulmer (SDSU, 2017)"
 
-        [[params.projects.list]]
+        [[projects.list]]
         title = "Interactive User Interface with PIC18 Microcontroller"
         url = "http://academic.genetzky.us/publication/sdsu/2015-05-01-ee347-interative-ui-with-pic-microcontroller/"
         tagline = "Nathan Genetzky, Drake Jeno (SDSU, 2017)"
 
-        [[params.projects.list]]
+        [[projects.list]]
         title = "Particle Projects"
         url = "http://academic.genetzky.us/project/particle-projects/"
         tagline = "Firmware for micro controllers sold by particle.io for use with wifi or cellular cloud devices."
 
 
     # Skills section
-    [params.skills]
+    [skills]
         enable = true
         icon = "fa-rocket"
         title = "Skills & Proficiency"
 
-        [[params.skills.list]]
+        [[skills.list]]
         skill = "Yocto (Build System, Embedded Distro, BSP Support)"
         level = "70%"
 
-        [[params.skills.list]]
+        [[skills.list]]
         skill = "Developer Tools (Docker, Jenkins, Git)"
         level = "60%"
 
-        [[params.skills.list]]
+        [[skills.list]]
         skill = "Terminal Workflow (Vim, GNU tools, shell scripting)"
         level = "50%"
 
-        [[params.skills.list]]
+        [[skills.list]]
         skill = "Linux Kernel (Drivers, Config, BSP)"
         level = "45%"
 
-        [[params.skills.list]]
+        [[skills.list]]
         skill = "Python Middleware"
         level = "45%"
 
-        [[params.skills.list]]
+        [[skills.list]]
         skill = "FPGA Development (SW Interface, Reusable Verilog, Automated Builds)"
         level = "30%"
 
@@ -299,5 +285,5 @@ worldwide.
     #
     # As for Hugo port you may rewrite the "Ported for..." line with setting your name below.
 
-    [params.footer]
+    [footer]
         copyright = "Nathan Genetzky"
