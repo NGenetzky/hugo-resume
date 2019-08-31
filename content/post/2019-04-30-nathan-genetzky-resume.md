@@ -1,10 +1,9 @@
-+++
-title = "Nathan Genetzky Resume"
-date = "2019-04-30"
-aliases = [
-    "/html/"
-]
-+++
+---
+title: "Nathan Genetzky's Resume as Markdown"
+subtitle: "Software and Hardware"
+author: "Nathan Genetzky"
+date: "2019-04-30"
+---
 
 # Nathan Genetzky
 

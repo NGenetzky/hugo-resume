@@ -1,9 +1,11 @@
 <head><title>{{$.Page.Params.title}}</title></head>
 <pre><code>
-# {{ $.Site.Params.profile.name }}
-
-{{ $.Site.Params.profile.tagline }}
-
+---
+title: "{{ $.Page.Params.title }}"
+subtitle: "{{ $.Page.Params.subtitle }}"
+author: "{{ $.Site.Params.profile.name }}"
+date: "{{ dateFormat "2006-01-02" $.Page.Params.date  }}"
+---
 
 ## {{ $.Site.Params.summary.title }}
 
