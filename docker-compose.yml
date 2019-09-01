@@ -11,14 +11,14 @@ hugo:
     - HUGO_THEME="hugo-orbit-theme" # This was required?
     # - HUGO_REFRESH_TIME=3600
     # - HUGO_DESTINATION="/output"
-  restart: always
+  # restart: always
   ports:
     - "1313:1313"
 
-# web:
-#   image: jojomi/nginx-static
-#   volumes:
-#     - hugo-academic-kickstart-out:/var/www
-#   ports:
-#     - "80:80"
-#   restart: always
+web:
+  image: jojomi/nginx-static
+  volumes:
+    - ./public:/var/www
+  ports:
+    - "80:80"
+  restart: always
