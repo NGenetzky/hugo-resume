@@ -59,7 +59,7 @@
         class = "twitter"
         icon = "fa-twitter"
         url = "https://twitter.com/NGenetzky"
-        title = "@NGenetzky"
+        title = "twitter.com/ngenetzky"
 
     # Education section
     [education]
