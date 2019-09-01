@@ -13,25 +13,15 @@ date: "{{ dateFormat "2006-01-02" $.Page.Params.date  }}"
 
 ## Contact
 {{ range $.Site.Params.contact.list }}
-- {{.title}}
+- [{{.title}}]({{.url}})
 {{- end }}
 
-
-## {{ $.Site.Params.education.title }}
-
-{{- range $.Site.Params.education.list }}
-
-### {{.degree}}
-
-{{.college}} ({{.dates}})
-
-{{- end }}
 
 ## {{ $.Site.Params.experiences.title }}
 
 {{- range $.Site.Params.jobs.list }}
 
-### {{.position}}
+#### {{.position}}
 
 {{.company}} ({{.dates}})
 
@@ -44,27 +34,36 @@ date: "{{ dateFormat "2006-01-02" $.Page.Params.date  }}"
 
 {{- range $.Site.Params.projects.list }}
 
-### {{.title}}
+#### {{.title}}
 
 - {{.tagline}}
-- {{.url}}
+- [{{.url}}]()
 
 {{- end }}
 
 
-## {{ $.Site.Params.skills.title }}
+### {{ $.Site.Params.skills.title }}
 {{ range $.Site.Params.skills.list }}
 - {{.skill}} ({{.level}})
 {{- end }}
 
+### {{ $.Site.Params.education.title }}
 
-## Lauguages
+{{- range $.Site.Params.education.list }}
+
+##### {{.degree}}
+
+{{.college}} ({{.dates}})
+
+{{- end }}
+
+### Lauguages
 {{ range $.Site.Params.language.list }}
 - {{.language}} ({{.level}})
 {{- end }}
 
 
-## {{ $.Site.Params.interests.title }}
+### {{ $.Site.Params.interests.title }}
 {{ range $.Site.Params.interests.list }}
 - {{.interest}}
 {{- end }}
