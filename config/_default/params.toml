@@ -19,7 +19,7 @@
     [profile]
         name = "Nathan Genetzky"
         tagline = "Software and Hardware"
-        # avatar = "profile.png"
+        avatar = "portrait.png"
 
     # Contact section
     [contact]
@@ -61,6 +61,12 @@
         url = "https://twitter.com/NGenetzky"
         title = "twitter.com/ngenetzky"
 
+        [[contact.list]]
+        class = "keybase"
+        icon = "fa-key"
+        url = "https://keybase.io/ngenetzky"
+        title = "keybase.io/ngenetzky"
+
     # Education section
     [education]
         enable = true
@@ -87,7 +93,7 @@
 
         [[language.list]]
         language = "Bash"
-        level = "~4 years"
+        level = "~5 years"
 
         [[language.list]]
         language = "Python"
@@ -95,6 +101,10 @@
 
         [[language.list]]
         language = "C"
+        level = "~3 year"
+
+        [[language.list]]
+        language = "Dockerfile"
         level = "~2 year"
 
         [[language.list]]
@@ -105,6 +115,10 @@
         language = "Java for Android"
         level = "~1 year"
 
+        [[language.list]]
+        language = "Yaml for Ansible"
+        level = "~1 year"
+
 
     # Interests section
     [interests]
@@ -112,13 +126,22 @@
         title = "Interests"
 
         [[interests.list]]
-        interest = "Climbing"
+        interest = "ice and rock climbing"
 
         [[interests.list]]
-        interest = "Snowboarding"
+        interest = "snowboarding and skiing"
 
         [[interests.list]]
-        interest = "Cooking"
+        interest = "cooking"
+
+        [[interests.list]]
+        interest = "jetsking and water skiing"
+
+        [[interests.list]]
+        interest = "camping"
+
+        [[interests.list]]
+        interest = "hobby-electronics, home automation, RPI"
 
 # Main body sections
 
@@ -130,7 +153,7 @@
         icon = "fa-user"
         title = "Career Profile"
         summary = """
-- Recent Electrical Engineer graduate with honors distinction.
+- Electrical Engineer graduate with honors distinction.
 - Worked as independent contractor twice during college.
 - Experience working as software engineer for two years during college.
 - Learned Android, Python, Git and Linux command line tools from on-line tutorials/videos.
@@ -253,27 +276,27 @@ worldwide.
 
         [[skills.list]]
         skill = "Yocto (Build System, Embedded Distro, BSP Support)"
-        level = "70%"
+        level = "90%"
 
         [[skills.list]]
         skill = "Developer Tools (Docker, Jenkins, Git)"
-        level = "60%"
+        level = "85%"
 
         [[skills.list]]
         skill = "Terminal Workflow (Vim, GNU tools, shell scripting)"
-        level = "50%"
+        level = "85%"
 
         [[skills.list]]
         skill = "Linux Kernel (Drivers, Config, BSP)"
-        level = "45%"
+        level = "55%"
 
         [[skills.list]]
-        skill = "Python Middleware"
-        level = "45%"
+        skill = "Python Middleware (DBus, REST, GObject, threading)"
+        level = "35%"
 
         [[skills.list]]
         skill = "FPGA Development (SW Interface, Reusable Verilog, Automated Builds)"
-        level = "30%"
+        level = "25%"
 
 
     # Footer section
