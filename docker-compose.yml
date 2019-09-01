@@ -1,0 +1,24 @@
+# https://github.com/jojomi/docker-hugo
+
+hugo:
+  image: jojomi/hugo:0.57.2
+  volumes:
+    - ./:/src
+    - ./public:/output
+  environment:
+    - HUGO_BASEURL=0.0.0.0
+    - HUGO_WATCH=true
+    - HUGO_THEME="hugo-orbit-theme" # This was required?
+    # - HUGO_REFRESH_TIME=3600
+    # - HUGO_DESTINATION="/output"
+  restart: always
+  ports:
+    - "1313:1313"
+
+# web:
+#   image: jojomi/nginx-static
+#   volumes:
+#     - hugo-academic-kickstart-out:/var/www
+#   ports:
+#     - "80:80"
+#   restart: always
