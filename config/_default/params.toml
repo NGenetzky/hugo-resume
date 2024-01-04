@@ -157,7 +157,7 @@
 - Worked as independent contractor twice during college.
 - Experience working as software engineer for two years during college.
 - Learned Android, Python, Git and Linux command line tools from on-line tutorials/videos.
-        """
+"""
 
     # Experiences section
     [experiences]
@@ -188,7 +188,7 @@ system that routes audio and video signals in professionally built AV systems.
 - I help to build a custom Linux distribution from the '/' up with the Yocto Project.
 - Our team uses many other tools during development such as Jenkins,  Jira,
   Git, Bitbake, and Puppet.
-        """
+"""
 
         [[jobs.list]]
         position = "Software Engineer"
@@ -198,7 +198,7 @@ system that routes audio and video signals in professionally built AV systems.
 - Develop embedded software for Particle, Nordic, and STM32 microcontrollers
 - Utilized custom hardware with the Particle platform for a custom door access solution
 - Developed with NRF52 SDK to create devices in a complex robotic system with BLE services
-        """
+"""
 
         [[jobs.list]]
         position = "Student Intern"
@@ -209,7 +209,7 @@ system that routes audio and video signals in professionally built AV systems.
 - Developed a C++ library that simplifies usage of librrd, a C library for
 creating, updating, and using RRDs (Round Robin Databases).
 - Used Test Driven Development to implement library, used CxxTest Framework.
-        """
+"""
 
 #        [[jobs.list]]
 #        position = "Student Technology Fellow"
@@ -218,7 +218,7 @@ creating, updating, and using RRDs (Round Robin Databases).
 #        _details = """
 #- Fixed issues with Windows computers related to networking or hardware.
 #- Installed smartboards, projectors, computers, audio systems and teaching stations.
-#        """
+#"""
 #
 #        [[jobs.list]]
 #        position = "Research Assistant"
@@ -230,7 +230,7 @@ creating, updating, and using RRDs (Round Robin Databases).
 #- Installed many complex systems: heater with feedback control, gas flow
 #control, vacuum gauges, rough pump, turbo pump, and magnetron sputtering
 #sources.
-#        """
+#"""
 #
 #        [[jobs.list]]
 #        position = "Software Developer Resident"
@@ -242,7 +242,7 @@ creating, updating, and using RRDs (Round Robin Databases).
 #- Member of a small team using agile development methods.
 #- Researched upcoming technologies and techniques: Hadoop, Docker, map reduce,
 #  Microservices, and distributed processing systems.
-#        """
+#"""
 #
 #        [[jobs.list]]
 #        position = "Sputtering System Lab Technician"
@@ -251,7 +251,7 @@ creating, updating, and using RRDs (Round Robin Databases).
 #        _details = """
 #- Operated Ion Beam Assisted Deposition System to produce Flyback transformers.
 #- Repaired or installed components on the sputtering system.
-#        """
+#"""
 
     # Projects section
     [projects]
