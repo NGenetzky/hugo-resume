@@ -88,36 +88,36 @@
         title = "Languages"
 
         [[language.list]]
-        language = "Cpp"
-        level = "~5 years"
-
-        [[language.list]]
         language = "Bash"
-        level = "~5 years"
+        level = "~7 years"
 
         [[language.list]]
         language = "Python"
-        level = "~3 years"
+        level = "~5 years"
+
+        [[language.list]]
+        language = "Cpp"
+        level = "~6 years"
 
         [[language.list]]
         language = "C"
-        level = "~3 year"
+        level = "~4 year"
 
         [[language.list]]
         language = "Dockerfile"
         level = "~2 year"
 
-        [[language.list]]
-        language = "Verilog"
-        level = "~2 years"
+        # [[language.list]]
+        # language = "Verilog"
+        # level = "~2 years"
 
         [[language.list]]
         language = "Java for Android"
         level = "~1 year"
 
-        [[language.list]]
-        language = "Yaml for Ansible"
-        level = "~1 year"
+        # [[language.list]]
+        # language = "Yaml for Ansible"
+        # level = "~1 year"
 
 
     # Interests section
