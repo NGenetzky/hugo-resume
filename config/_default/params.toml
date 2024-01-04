@@ -166,8 +166,15 @@
         title = "Experiences"
 
         [[jobs.list]]
+        position = "Senior Software Engineer"
+        dates = "12.2021 - PRESENT"
+        company = "ESW Team at Appareo Systems"
+        details = """
+        """
+
+        [[jobs.list]]
         position = "Software Engineer 1"
-        dates = "05.2017 - PRESENT"
+        dates = "05.2017 - 12.2021"
         company = "System Team at Vaddio"
         details = """
 - Working with FPGA and python developers to create an integrated embedded
@@ -179,7 +186,7 @@ system that routes audio and video signals in professionally built AV systems.
 
         [[jobs.list]]
         position = "Software Engineer"
-        dates = "11.2018 - PRESENT"
+        dates = "11.2018 - 12.2021"
         company = "Dojo Five"
         details = """
 - Develop embedded software for Particle, Nordic, and STM32 microcontrollers
