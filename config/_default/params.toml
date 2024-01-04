@@ -126,22 +126,22 @@
         title = "Interests"
 
         [[interests.list]]
+        interest = "hobby-electronics, home automation, embedded-linux"
+
+        [[interests.list]]
         interest = "ice and rock climbing"
 
         [[interests.list]]
         interest = "snowboarding and skiing"
 
         [[interests.list]]
-        interest = "cooking"
+        interest = "gardening, cooking"
 
         [[interests.list]]
-        interest = "jetsking and water skiing"
+        interest = "jetsking, boating, water skiing"
 
         [[interests.list]]
-        interest = "camping"
-
-        [[interests.list]]
-        interest = "hobby-electronics, home automation, RPI"
+        interest = "camping, kayaking, volleyball"
 
 # Main body sections
 
