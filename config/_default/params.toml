@@ -170,7 +170,13 @@
         dates = "12.2021 - PRESENT"
         company = "ESW Team at Appareo Systems"
         details = """
-        """
+- Performed board bring-up for custom PCB with heterogeneous SOC (IMX8DXL).
+- Integrated drivers for cellular modems, WiFi, and bluetooth.
+- Setup dockerized Jenkins with both manual and GitOps centric builds.
+- Utilized Gitflow including automated build and deployment of releases.
+- Developed and utilized HIL testing with Labgrid on RPI4.
+- Generated SDKs and docker images for quick cross-compilation of C++ Applications.
+"""
 
         [[jobs.list]]
         position = "Software Engineer 1"
