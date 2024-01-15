@@ -7,8 +7,14 @@ Resume generated with Hugo for [Nathan Genetzky][]
 
 ## Source
 
-- Generated with Hugo
 - Designed by [Xiaoying Riley][]
+- Data is stored in toml files in "config".
+
+## Tools
+
+- Generated with Hugo.
+- Nimbus Capture is used to archive web format.
+- Pandoc is used to generate docx+pdf from markdown.
 
 ## Output
 
