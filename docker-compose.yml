@@ -21,4 +21,4 @@ web:
     - ./public:/var/www
   ports:
     - "80:80"
-  restart: always
+  # restart: always

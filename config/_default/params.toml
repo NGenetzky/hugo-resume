@@ -88,36 +88,36 @@
         title = "Languages"
 
         [[language.list]]
-        language = "Cpp"
-        level = "~5 years"
-
-        [[language.list]]
         language = "Bash"
-        level = "~5 years"
+        level = "~7 years"
 
         [[language.list]]
         language = "Python"
-        level = "~3 years"
+        level = "~5 years"
+
+        [[language.list]]
+        language = "Cpp"
+        level = "~6 years"
 
         [[language.list]]
         language = "C"
-        level = "~3 year"
+        level = "~4 year"
 
         [[language.list]]
         language = "Dockerfile"
         level = "~2 year"
 
-        [[language.list]]
-        language = "Verilog"
-        level = "~2 years"
+        # [[language.list]]
+        # language = "Verilog"
+        # level = "~2 years"
 
         [[language.list]]
         language = "Java for Android"
         level = "~1 year"
 
-        [[language.list]]
-        language = "Yaml for Ansible"
-        level = "~1 year"
+        # [[language.list]]
+        # language = "Yaml for Ansible"
+        # level = "~1 year"
 
 
     # Interests section
@@ -126,22 +126,22 @@
         title = "Interests"
 
         [[interests.list]]
+        interest = "hobby-electronics, home automation, embedded-linux"
+
+        [[interests.list]]
         interest = "ice and rock climbing"
 
         [[interests.list]]
         interest = "snowboarding and skiing"
 
         [[interests.list]]
-        interest = "cooking"
+        interest = "gardening, cooking"
 
         [[interests.list]]
-        interest = "jetsking and water skiing"
+        interest = "jetsking, boating, water skiing"
 
         [[interests.list]]
-        interest = "camping"
-
-        [[interests.list]]
-        interest = "hobby-electronics, home automation, RPI"
+        interest = "camping, kayaking, volleyball"
 
 # Main body sections
 
@@ -157,7 +157,7 @@
 - Worked as independent contractor twice during college.
 - Experience working as software engineer for two years during college.
 - Learned Android, Python, Git and Linux command line tools from on-line tutorials/videos.
-        """
+"""
 
     # Experiences section
     [experiences]
@@ -166,8 +166,21 @@
         title = "Experiences"
 
         [[jobs.list]]
+        position = "Senior Software Engineer"
+        dates = "12.2021 - PRESENT"
+        company = "ESW Team at Appareo Systems"
+        details = """
+- Performed board bring-up for custom PCB with heterogeneous SOC (IMX8DXL).
+- Integrated drivers for cellular modems, WiFi, and bluetooth.
+- Setup dockerized Jenkins with both manual and GitOps centric builds.
+- Utilized Gitflow including automated build and deployment of releases.
+- Developed and utilized HIL testing with Labgrid on RPI4.
+- Generated SDKs and docker images for quick cross-compilation of C++ Applications.
+"""
+
+        [[jobs.list]]
         position = "Software Engineer 1"
-        dates = "05.2017 - PRESENT"
+        dates = "05.2017 - 12.2021"
         company = "System Team at Vaddio"
         details = """
 - Working with FPGA and python developers to create an integrated embedded
@@ -175,17 +188,17 @@ system that routes audio and video signals in professionally built AV systems.
 - I help to build a custom Linux distribution from the '/' up with the Yocto Project.
 - Our team uses many other tools during development such as Jenkins,  Jira,
   Git, Bitbake, and Puppet.
-        """
+"""
 
         [[jobs.list]]
         position = "Software Engineer"
-        dates = "11.2018 - PRESENT"
+        dates = "11.2018 - 12.2021"
         company = "Dojo Five"
         details = """
 - Develop embedded software for Particle, Nordic, and STM32 microcontrollers
 - Utilized custom hardware with the Particle platform for a custom door access solution
 - Developed with NRF52 SDK to create devices in a complex robotic system with BLE services
-        """
+"""
 
         [[jobs.list]]
         position = "Student Intern"
@@ -196,49 +209,49 @@ system that routes audio and video signals in professionally built AV systems.
 - Developed a C++ library that simplifies usage of librrd, a C library for
 creating, updating, and using RRDs (Round Robin Databases).
 - Used Test Driven Development to implement library, used CxxTest Framework.
-        """
+"""
 
-        [[jobs.list]]
-        position = "Student Technology Fellow"
-        dates = "08.2013 - 05.2016"
-        company = "Classroom Technology Services at SDSU"
-        _details = """
-- Fixed issues with Windows computers related to networking or hardware.
-- Installed smartboards, projectors, computers, audio systems and teaching stations.
-        """
-
-        [[jobs.list]]
-        position = "Research Assistant"
-        dates = "03.2013 - 05.2016"
-        company = "EECS Department at SDSU"
-        _details = """
-- First undergraduate authorized to use the Scanning Electron Microscope.
-- Built and helped design a vacuum sputtering deposition system.
-- Installed many complex systems: heater with feedback control, gas flow
-control, vacuum gauges, rough pump, turbo pump, and magnetron sputtering
-sources.
-        """
-
-        [[jobs.list]]
-        position = "Software Developer Resident"
-        dates = "06.2015 - 12.2015"
-        company = "Subcontractor for Earth Resources Observation Systems"
-        _details = """
-- Wrote python code utilized in a production system used by scientists
-worldwide.
-- Member of a small team using agile development methods.
-- Researched upcoming technologies and techniques: Hadoop, Docker, map reduce,
-  Microservices, and distributed processing systems.
-        """
-
-        [[jobs.list]]
-        position = "Sputtering System Lab Technician"
-        dates = "09.2014 - 02.2015"
-        company = "NASCENTechnology"
-        _details = """
-- Operated Ion Beam Assisted Deposition System to produce Flyback transformers.
-- Repaired or installed components on the sputtering system.
-        """
+#        [[jobs.list]]
+#        position = "Student Technology Fellow"
+#        dates = "08.2013 - 05.2016"
+#        company = "Classroom Technology Services at SDSU"
+#        _details = """
+#- Fixed issues with Windows computers related to networking or hardware.
+#- Installed smartboards, projectors, computers, audio systems and teaching stations.
+#"""
+#
+#        [[jobs.list]]
+#        position = "Research Assistant"
+#        dates = "03.2013 - 05.2016"
+#        company = "EECS Department at SDSU"
+#        _details = """
+#- First undergraduate authorized to use the Scanning Electron Microscope.
+#- Built and helped design a vacuum sputtering deposition system.
+#- Installed many complex systems: heater with feedback control, gas flow
+#control, vacuum gauges, rough pump, turbo pump, and magnetron sputtering
+#sources.
+#"""
+#
+#        [[jobs.list]]
+#        position = "Software Developer Resident"
+#        dates = "06.2015 - 12.2015"
+#        company = "Subcontractor for Earth Resources Observation Systems"
+#        _details = """
+#- Wrote python code utilized in a production system used by scientists
+#worldwide.
+#- Member of a small team using agile development methods.
+#- Researched upcoming technologies and techniques: Hadoop, Docker, map reduce,
+#  Microservices, and distributed processing systems.
+#"""
+#
+#        [[jobs.list]]
+#        position = "Sputtering System Lab Technician"
+#        dates = "09.2014 - 02.2015"
+#        company = "NASCENTechnology"
+#        _details = """
+#- Operated Ion Beam Assisted Deposition System to produce Flyback transformers.
+#- Repaired or installed components on the sputtering system.
+#"""
 
     # Projects section
     [projects]

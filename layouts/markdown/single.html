@@ -10,26 +10,20 @@ date: "{{ dateFormat "2006-01-02" $.Page.Params.date  }}"
 ## {{ $.Site.Params.summary.title }}
 
 {{ $.Site.Params.summary.summary }}
-
 ## Contact
 {{ range $.Site.Params.contact.list }}
 - [{{.title}}]({{.url}})
 {{- end }}
 
-
 ## {{ $.Site.Params.experiences.title }}
 
 {{- range $.Site.Params.jobs.list }}
-
 #### {{.position}}
 
 {{.company}} ({{.dates}})
 
 {{.details}}
-
 {{- end }}
-
-
 ## {{ $.Site.Params.projects.title }}
 
 {{- range $.Site.Params.projects.list }}
@@ -40,7 +34,6 @@ date: "{{ dateFormat "2006-01-02" $.Page.Params.date  }}"
 - [{{.url}}]()
 
 {{- end }}
-
 
 ### {{ $.Site.Params.skills.title }}
 {{ range $.Site.Params.skills.list }}
@@ -61,7 +54,6 @@ date: "{{ dateFormat "2006-01-02" $.Page.Params.date  }}"
 {{ range $.Site.Params.language.list }}
 - {{.language}} ({{.level}})
 {{- end }}
-
 
 ### {{ $.Site.Params.interests.title }}
 {{ range $.Site.Params.interests.list }}
