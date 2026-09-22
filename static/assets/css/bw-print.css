@@ -1,0 +1,204 @@
+/* Printer-friendly and black-and-white support.
+ *
+ * Loaded on every page via layouts/partials/head-append.html. Three parts:
+ *   1. .version-toggle  - the colour <-> B&W switch link (screen only)
+ *   2. body.bw          - greyscale theme used by /bw/, on screen and in print
+ *   3. @media print     - layout fixes that apply to both versions
+ */
+
+/* ------------------------------------------------------------------ toggle */
+
+.version-toggle {
+    max-width: 960px;
+    margin: 8px auto 0;
+    padding: 0 10px;
+    text-align: right;
+    font-size: 13px;
+}
+
+/* ---------------------------------------------------------------- B&W mode */
+
+body.bw .wrapper,
+body.bw .sidebar-wrapper,
+body.bw .sidebar-wrapper .profile-container {
+    background: #fff !important;
+}
+
+body.bw .wrapper {
+    box-shadow: none !important;
+    border: 1px solid #ddd;
+}
+
+/* The sidebar loses the accent fill that separated it, so give it an edge. */
+body.bw .sidebar-wrapper {
+    border-left: 1px solid #bbb;
+    color: #000 !important;
+}
+
+body.bw .sidebar-wrapper a,
+body.bw .sidebar-wrapper,
+body.bw .sidebar-wrapper *,
+body.bw a,
+body.bw .main-wrapper .section-title {
+    color: #000 !important;
+}
+
+/* These are rgba(255,255,255,0.6) so they read as muted on the teal panel,
+ * which makes them invisible once the panel is white. */
+body.bw .sidebar-wrapper .tagline,
+body.bw .sidebar-wrapper .education-container .meta,
+body.bw .sidebar-wrapper .education-container .time,
+body.bw .sidebar-wrapper .language-container .lang-desc {
+    color: #555 !important;
+}
+
+/* Printer-friendly version, so drop the portrait. */
+body.bw .sidebar-wrapper .profile {
+    display: none !important;
+}
+
+/* #97AAC3 is a pale blue-grey; it prints and reads as washed out in mono. */
+body.bw .main-wrapper .time,
+body.bw .main-wrapper .company {
+    color: #555 !important;
+}
+
+body.bw .main-wrapper .section-title .fa {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+body.bw .skillset .level-bar {
+    background: #fff !important;
+    border: 1px solid #666;
+    height: 8px;
+}
+
+body.bw .skillset .level-bar-inner {
+    background: #555 !important;
+    height: 8px;
+}
+
+body.bw .footer .fa-heart {
+    color: #000 !important;
+}
+
+/* --------------------------------------------------------------- paged fix */
+
+/* styles-1-compact.css sets `page-break-before: always` on .main-wrapper. A
+ * forced break is ignored while the element is still first on the page, which
+ * hid the bug until a sibling was added above .wrapper; after that the break
+ * fires and every bit of body content lands on sheet two. This applies to any
+ * paged output, not just print media, so it is deliberately outside @media. */
+.main-wrapper {
+    page-break-before: auto !important;
+    break-before: auto !important;
+}
+
+/* ------------------------------------------------------------------ print */
+
+@media print {
+    @page {
+        margin: 0.5in;
+    }
+
+    .version-toggle,
+    .no-print {
+        display: none !important;
+    }
+
+    .main-wrapper {
+        padding: 0 !important;
+    }
+
+    /* The sidebar is `position: absolute; height: 100%`, so on paper it escapes
+     * its page and overprints the experience text. Float it so it paginates. */
+    .sidebar-wrapper {
+        position: static !important;
+        float: right;
+        width: 32% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 0 0 12px 18px !important;
+        border-left: 1px solid #999;
+    }
+
+    .wrapper,
+    .sidebar-wrapper,
+    .sidebar-wrapper .profile-container {
+        background: none !important;
+        box-shadow: none !important;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+
+    /* A solid accent panel over a quarter of the sheet costs a lot of ink and
+     * carries no information. */
+    .sidebar-wrapper,
+    .sidebar-wrapper *,
+    .sidebar-wrapper a {
+        color: #000 !important;
+    }
+
+    .sidebar-wrapper .tagline,
+    .sidebar-wrapper .education-container .meta,
+    .sidebar-wrapper .education-container .time,
+    .sidebar-wrapper .language-container .lang-desc,
+    .main-wrapper .time,
+    .main-wrapper .company {
+        color: #555 !important;
+    }
+
+    /* Photos print as muddy blocks and are not a US resume convention. */
+    .sidebar-wrapper .profile {
+        display: none !important;
+    }
+
+    /* Bootstrap's print rules append every href after its link text, so the
+     * contact list reads "nathan@genetzky.us (mailto:%20nathan@genetzky.us)". */
+    a[href]:after,
+    a[href]:before {
+        content: "" !important;
+    }
+
+    /* Bootstrap's print reset blanks backgrounds, but these two are !important
+     * with higher specificity, so they survive as lone colour bars on an
+     * otherwise monochrome page. */
+    .skillset .level-bar {
+        background: #fff !important;
+        border: 1px solid #666;
+        height: 8px;
+    }
+
+    .skillset .level-bar-inner {
+        background: #666 !important;
+        height: 8px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Keep headings with the entry they introduce. */
+    h1, h2, h3, h4, h5,
+    .main-wrapper .section-title {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    /* styles-1-compact.css sets `page-break-inside: avoid` on every .section.
+     * The experiences section is taller than a sheet, so the rule cannot be
+     * honoured: the browser defers the whole block to the next page, leaving
+     * most of one blank, and then has to split it anyway. */
+    .main-wrapper .section {
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+    }
+
+    /* Deliberately not applied to .main-wrapper .item: a job entry with seven
+     * bullets is too tall to keep whole, and forcing it leaves most of a page
+     * blank. Only the short sidebar entries are worth protecting. */
+    .sidebar-wrapper .item {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}
