@@ -39,11 +39,16 @@ Existing bars for calibration:
 | Python Middleware (DBus, REST, GObject, threading) | 35% |
 | FPGA Development (SW Interface, Reusable Verilog, Automated Builds) | 25% |
 
-- [ ] `OTA & Update Systems (RAUC, Mender, OSTree, custom)` — `__%`
-- [ ] `Device Cloud Platforms (Balena)` — `__%`
+- [ ] `OTA & Update Systems (RAUC, A/B, secure boot fallback)` — `__%`
 - [ ] `Product Cybersecurity (EN 18031, secure boot, SBOM)` — `__%`
 
-Note: the current PDF fills one page with no room to spare. Adding three bars
+Deliberately not suggested: a "Device Cloud Platforms (Balena)" bar. Balena,
+Mender, OSTree and the custom update agent are self-directed personal work, not
+professional experience, and a skills bar reads as a professional claim. They
+are represented instead by the "Personal projects, self-directed" entry in
+Experiences.
+
+Note: the current PDF fills one page with no room to spare. Adding two bars
 will likely push it over. Options: drop the two weakest existing bars
 (Python Middleware 35%, FPGA 25%), or trim the Vaddio/Dojo Five bullets.
 
