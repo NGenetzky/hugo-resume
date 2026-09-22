@@ -7,6 +7,9 @@
 # Usage:
 #   hugo server &                 # or: script/serve.bash
 #   script/build_capture.bash
+#
+# Tunables: CAPTURE_URL, CAPTURE_WIDTH (layout width in px), CAPTURE_MARGIN
+# (minimum page margin in inches), CAPTURE_IMAGE.
 
 set -eu -o pipefail
 
@@ -15,12 +18,14 @@ D_PROJ="$(CDPATH='' cd -- "${D_SCRIPT}/.." && pwd -P)"
 
 CAPTURE_URL="${CAPTURE_URL:-http://localhost:1313/}"
 CAPTURE_WIDTH="${CAPTURE_WIDTH:-1250}"
+CAPTURE_MARGIN="${CAPTURE_MARGIN:-0.25}"
 IMAGE="${CAPTURE_IMAGE:-zenika/alpine-chrome:with-puppeteer}"
 
 docker run --rm --network host \
     -u "$(id -u):$(id -g)" \
     -e CAPTURE_URL="${CAPTURE_URL}" \
     -e CAPTURE_WIDTH="${CAPTURE_WIDTH}" \
+    -e CAPTURE_MARGIN="${CAPTURE_MARGIN}" \
     -v "${D_PROJ}/script/capture.js":/usr/src/app/capture.js:ro \
     -v "${D_PROJ}/static":/out \
     -w /usr/src/app \
