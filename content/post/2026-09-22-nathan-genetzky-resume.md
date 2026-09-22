@@ -35,11 +35,10 @@ PTx, AGCO's Precision Agriculture Technology business (04.2024 - PRESENT)
 - Implemented secure boot and signed firmware images; performed threat modeling
   and key management backed by a hardware security element.
 - Generate and maintain SBOMs for a Yocto-based product.
-- Evaluated RAUC, Mender, and OSTree against product constraints and authored a
-  custom update agent where none fit; A/B partitioning, atomic updates, and
-  rollback-safe failure handling.
-- Manage fleets with Balena: device provisioning, remote access, and delivery of
-  containerized applications running on embedded targets.
+- Implemented RAUC OTA updates across multiple A/B and asymmetric partition
+  layouts: U-Boot integration, secure boot fallback handling, recovery from
+  failed kernel, rootfs, and application updates, and the tests to prove it.
+- Build and deliver containerized applications that run on embedded targets.
 - Integrated AI-assisted development into daily embedded workflow for code
   generation, review, test authoring, and documentation, with defined boundaries
   on where generated code is not trusted without verification.
@@ -73,6 +72,16 @@ Dojo Five (11.2018 - 12.2021)
 - Develop embedded software for Particle, Nordic, and STM32 microcontrollers
 - Utilized custom hardware with the Particle platform for a custom door access solution
 - Developed with NRF52 SDK to create devices in a complex robotic system with BLE services
+
+#### Embedded Linux and OTA Experiments
+
+Personal projects, self-directed (ONGOING)
+
+- Compared Mender and OSTree against RAUC to understand A/B, atomic, and
+  rollback-safe update strategies, and authored a custom update agent to work
+  through the trade-offs first hand.
+- Managed device fleets with Balena: provisioning, remote access, and delivery
+  of containerized applications to embedded targets.
 
 ## Projects
 
