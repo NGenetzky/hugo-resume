@@ -89,23 +89,23 @@
 
         [[language.list]]
         language = "Bash"
-        level = "~7 years"
+        level = "~10 years"
 
         [[language.list]]
         language = "Python"
-        level = "~5 years"
+        level = "~8 years"
 
         [[language.list]]
-        language = "Cpp"
-        level = "~6 years"
+        language = "C++"
+        level = "~9 years"
 
         [[language.list]]
         language = "C"
-        level = "~4 year"
+        level = "~7 years"
 
         [[language.list]]
         language = "Dockerfile"
-        level = "~2 year"
+        level = "~5 years"
 
         # [[language.list]]
         # language = "Verilog"
@@ -153,10 +153,11 @@
         icon = "fa-user"
         title = "Career Profile"
         summary = """
-- Electrical Engineer graduate with honors distinction.
-- Worked as independent contractor twice during college.
-- Experience working as software engineer for two years during college.
-- Learned Android, Python, Git and Linux command line tools from on-line tutorials/videos.
+- Embedded Linux engineer with ~9 years taking connected products from board
+  bring-up through secure, field-updatable deployment.
+- Yocto distributions, BSP and kernel work, CI/CD, and hardware-in-the-loop test.
+- Product cybersecurity (EN 18031 / EU RED, secure boot, SBOM) and OTA update systems.
+- Electrical Engineering graduate with honors distinction.
 """
 
     # Experiences section
@@ -167,13 +168,37 @@
 
         [[jobs.list]]
         position = "Senior Software Engineer"
-        dates = "12.2021 - PRESENT"
-        company = "ESW Team at Appareo Systems"
+        dates = "04.2024 - PRESENT"
+        company = "PTx, AGCO's Precision Agriculture Technology business"
         details = """
-- Performed board bring-up for custom PCB with heterogeneous SOC (IMX8DXL).
+- Develop embedded Linux platforms for agricultural equipment electronics;
+  working knowledge of CAN bus and protocol.
+- Applied EN 18031 (EU RED cybersecurity) to a connected product: asset
+  identification, decision-tree assessment, and evidence for third-party
+  certification; tracking CRA readiness.
+- Implemented secure boot and signed firmware images; performed threat modeling
+  and key management backed by a hardware security element.
+- Generate and maintain SBOMs for a Yocto-based product.
+- Evaluated RAUC, Mender, and OSTree against product constraints and authored a
+  custom update agent where none fit; A/B partitioning, atomic updates, and
+  rollback-safe failure handling.
+- Manage fleets with Balena: device provisioning, remote access, and delivery of
+  containerized applications running on embedded targets.
+- Integrated AI-assisted development into daily embedded workflow for code
+  generation, review, test authoring, and documentation, with defined boundaries
+  on where generated code is not trusted without verification.
+"""
+
+        [[jobs.list]]
+        position = "Senior Software Engineer"
+        dates = "12.2021 - 04.2024"
+        company = "ESW Team at Appareo Systems (acquired by AGCO, 01.2022)"
+        details = """
+- Performed board bring-up for custom PCB with heterogeneous SOC (IMX8DXL),
+  debugging with JTAG/SWD, GDB, logic analyzer, and oscilloscope.
 - Integrated drivers for cellular modems, WiFi, and bluetooth.
-- Setup dockerized Jenkins with both manual and GitOps centric builds.
-- Utilized Gitflow including automated build and deployment of releases.
+- Setup dockerized Jenkins with manual and GitOps centric builds, using Gitflow
+  with automated build and deployment of releases.
 - Developed and utilized HIL testing with Labgrid on RPI4.
 - Generated SDKs and docker images for quick cross-compilation of C++ Applications.
 """
@@ -200,16 +225,17 @@ system that routes audio and video signals in professionally built AV systems.
 - Developed with NRF52 SDK to create devices in a complex robotic system with BLE services
 """
 
-        [[jobs.list]]
-        position = "Student Intern"
-        dates = "05.2016 - 05.2017"
-        company = "Hardware Design at Daktronics"
-        details = """
-- Developed C++ code for communication with I2C sensors from a Linux system.
-- Developed a C++ library that simplifies usage of librrd, a C library for
-creating, updating, and using RRDs (Round Robin Databases).
-- Used Test Driven Development to implement library, used CxxTest Framework.
-"""
+# Commented out 2026-09: kept for history, trimmed to hold the resume to one page.
+#        [[jobs.list]]
+#        position = "Student Intern"
+#        dates = "05.2016 - 05.2017"
+#        company = "Hardware Design at Daktronics"
+#        _details = """
+#- Developed C++ code for communication with I2C sensors from a Linux system.
+#- Developed a C++ library that simplifies usage of librrd, a C library for
+#creating, updating, and using RRDs (Round Robin Databases).
+#- Used Test Driven Development to implement library, used CxxTest Framework.
+#"""
 
 #        [[jobs.list]]
 #        position = "Student Technology Fellow"
@@ -292,7 +318,7 @@ creating, updating, and using RRDs (Round Robin Databases).
         level = "90%"
 
         [[skills.list]]
-        skill = "Developer Tools (Docker, Jenkins, Git)"
+        skill = "Developer Tools (Docker, Jenkins, Git, GDB, JTAG/SWD)"
         level = "85%"
 
         [[skills.list]]
