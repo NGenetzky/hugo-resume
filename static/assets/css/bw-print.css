@@ -111,6 +111,28 @@ body.bw .footer .fa-heart {
         padding: 0 !important;
     }
 
+    /* In print the layout viewport is the page box, ~720px at the 0.5in margin
+     * above. That is under the theme's 767px breakpoint, so the resume
+     * collapses to a narrow single column and runs to three sheets. Lay it out
+     * at desktop width and scale it down instead: 1250 x 0.576 = 720px.
+     *
+     * zoom is guarded because Firefox only gained it in 126; without support
+     * the fixed width would simply overflow the sheet. The fallback is the
+     * multi-page flow, which is correct, just longer.
+     *
+     * The footer sits outside .wrapper, so it needs the same scale or it
+     * prints much larger than the resume itself. */
+    @supports (zoom: 1) {
+        .wrapper,
+        .footer {
+            width: 1250px !important;
+            max-width: none !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            zoom: 0.576;
+        }
+    }
+
     /* The sidebar is `position: absolute; height: 100%`, so on paper it escapes
      * its page and overprints the experience text. Float it so it paginates. */
     .sidebar-wrapper {
