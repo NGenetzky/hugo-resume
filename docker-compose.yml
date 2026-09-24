@@ -1,24 +1,18 @@
-# https://github.com/jojomi/docker-hugo
+# Local preview. Equivalent to script/serve.bash, which is what CI uses.
+#
+# HUGO_VERSION is duplicated from script/hugo.bash; keep the two in step.
+#   docker compose up
+#   HUGO_VERSION=0.128.2 docker compose up
 
-hugo:
-  image: jojomi/hugo:0.57.2
-  volumes:
-    - ./:/src
-    - ./public:/output
-  environment:
-    - HUGO_BASEURL=0.0.0.0
-    - HUGO_WATCH=true
-    - HUGO_THEME="hugo-orbit-theme" # This was required?
-    # - HUGO_REFRESH_TIME=3600
-    # - HUGO_DESTINATION="/output"
-  # restart: always
-  ports:
-    - "1313:1313"
-
-web:
-  image: jojomi/nginx-static
-  volumes:
-    - ./public:/var/www
-  ports:
-    - "80:80"
-  # restart: always
+services:
+  hugo:
+    image: hugomods/hugo:exts-${HUGO_VERSION:-0.111.3}
+    command: hugo server --bind 0.0.0.0 --port 1313
+    # Match the host user, otherwise .hugo_build.lock is created as root and
+    # every later non-root build fails with "permission denied".
+    user: "${UID:-1000}:${GID:-1000}"
+    working_dir: /src
+    volumes:
+      - ./:/src
+    ports:
+      - "1313:1313"
