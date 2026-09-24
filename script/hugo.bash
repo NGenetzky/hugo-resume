@@ -43,13 +43,23 @@ hugo_serve_start(){
 }
 
 hugo_serve_stop(){
-    docker rm -f "${HUGO_CONTAINER}" >/dev/null 2>&1 || true
+    if docker rm -f "${HUGO_CONTAINER}" >/dev/null 2>&1; then
+        return 0
+    fi
+    # Snap-packaged dockerd can refuse to signal a container ("could not kill
+    # container: permission denied"). The server runs as the invoking user, so
+    # signal its host pid directly; --rm then reaps the container.
+    local pid
+    pid="$(docker inspect -f '{{.State.Pid}}' "${HUGO_CONTAINER}" 2>/dev/null || true)"
+    if [[ -n "${pid}" && "${pid}" != "0" ]]; then
+        kill -TERM "${pid}" 2>/dev/null || true
+    fi
 }
 
 hugo_serve_wait(){
     local url="http://localhost:${HUGO_PORT}/" i
     for i in $(seq 1 60); do
-        if curl -fsS -o /dev/null "${url}"; then
+        if curl -fsS -o /dev/null --max-time 2 "${url}" 2>/dev/null; then
             return 0
         fi
         sleep 1
