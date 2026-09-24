@@ -5,25 +5,27 @@
 # git-annex pointer, a git-lfs pointer or a zero-byte stub, so without this check
 # a broken resume deploys silently and the deploy is still reported green.
 #
-# Usage: script/check_artifacts.bash [dir]     (default: the repo itself)
+# Usage: script/check_artifacts.bash [dir]
+#   dir defaults to static/. Pass public/ to check a built site, where the same
+#   files appear at the same relative paths.
 
 D_SCRIPT="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)"
 D_PROJ="$(CDPATH='' cd -- "${D_SCRIPT}/.." && pwd -P)"
 
-# relative path : expected leading magic bytes (hex) : minimum plausible size
+# path relative to the static root : expected leading magic bytes (hex) : minimum plausible size
 ARTIFACTS=(
-    "static/nathan-genetzky-resume.pdf:25504446:20000"
-    "static/nathan-genetzky-resume-bw.pdf:25504446:20000"
-    "static/nathan-genetzky-resume.docx.pdf:25504446:20000"
-    "static/nathan-genetzky-resume.docx:504b0304:5000"
-    "static/nathan-genetzky-resume.png:89504e47:50000"
-    "static/assets/images/portrait.png:89504e47:2000"
-    "static/apple-touch-icon.png:89504e47:1000"
-    "static/android-chrome-192x192.png:89504e47:1000"
-    "static/android-chrome-512x512.png:89504e47:1000"
-    "static/favicon-16x16.png:89504e47:200"
-    "static/favicon-32x32.png:89504e47:200"
-    "static/favicon.ico:00000100:500"
+    "nathan-genetzky-resume.pdf:25504446:20000"
+    "nathan-genetzky-resume-bw.pdf:25504446:20000"
+    "nathan-genetzky-resume.docx.pdf:25504446:20000"
+    "nathan-genetzky-resume.docx:504b0304:5000"
+    "nathan-genetzky-resume.png:89504e47:50000"
+    "assets/images/portrait.png:89504e47:2000"
+    "apple-touch-icon.png:89504e47:1000"
+    "android-chrome-192x192.png:89504e47:1000"
+    "android-chrome-512x512.png:89504e47:1000"
+    "favicon-16x16.png:89504e47:200"
+    "favicon-32x32.png:89504e47:200"
+    "favicon.ico:00000100:500"
 )
 
 magic_of(){
@@ -43,9 +45,10 @@ placeholder_kind(){
 
 check_artifacts(){
     local root entry path want_magic min_size size got_magic kind rc
-    root="${1-${D_PROJ}}"
+    root="${1-${D_PROJ}/static}"
     rc=0
 
+    echo "checking artifacts in ${root}"
     for entry in "${ARTIFACTS[@]}"; do
         IFS=: read -r path want_magic min_size <<<"${entry}"
         local f="${root}/${path}"
