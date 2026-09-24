@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    {{ partial "lang.html" . }}
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    <p class="version-toggle no-print">
+        <a href="{{ .Site.BaseURL }}bw/">Printer-friendly (black &amp; white)</a>
+    </p>
+
+    {{ partial "resume-body.html" . }}
+
+    {{ partial "footer.html" . }}
+
+    {{ partial "scripts.html" . }}
+</body>
+</html>
