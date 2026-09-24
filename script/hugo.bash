@@ -1,0 +1,60 @@
+#!/bin/bash
+# Pinned Hugo toolchain. Source this; every other script and CI job runs Hugo
+# through it so local builds and CI builds cannot drift apart.
+#
+# 0.111.3 is the newest release this site builds on unmodified. Raising it means
+# fixing two things first: 0.120 removed the _internal/google_analytics_async.html
+# template that layouts/partials/head.html calls, and config.toml still spells
+# disableKinds as "taxonomyTerm" (renamed to "taxonomy" in 0.73, warns from 0.116).
+# 0.123 also dropped symlink support, which rules out locked git-annex files.
+#
+# Set HUGO=hugo to use a local install instead of the pinned image.
+
+HUGO_VERSION="${HUGO_VERSION:-0.111.3}"
+HUGO_IMAGE="${HUGO_IMAGE:-hugomods/hugo:exts-${HUGO_VERSION}}"
+HUGO_PORT="${HUGO_PORT:-1313}"
+HUGO_CONTAINER="${HUGO_CONTAINER:-hugo-resume-server}"
+
+D_HUGO_SCRIPT="$(CDPATH='' cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+D_HUGO_PROJ="$(CDPATH='' cd -- "${D_HUGO_SCRIPT}/.." && pwd -P)"
+
+# Extra `docker run` options, e.g. HUGO_DOCKER_OPTS=(-p 1313:1313) to publish the server.
+if [[ -z "${HUGO_DOCKER_OPTS+x}" ]]; then
+    HUGO_DOCKER_OPTS=()
+fi
+
+hugo_run(){
+    if [[ -n "${HUGO:-}" ]]; then
+        (cd "${D_HUGO_PROJ}" && "${HUGO}" "$@")
+    else
+        docker run --rm -u "$(id -u):$(id -g)" \
+            ${HUGO_DOCKER_OPTS[@]+"${HUGO_DOCKER_OPTS[@]}"} \
+            -v "${D_HUGO_PROJ}":/src -w /src "${HUGO_IMAGE}" hugo "$@"
+    fi
+}
+
+hugo_serve_start(){
+    hugo_serve_stop
+    docker run --rm --detach --name "${HUGO_CONTAINER}" \
+        -u "$(id -u):$(id -g)" \
+        -v "${D_HUGO_PROJ}":/src -w /src \
+        -p "${HUGO_PORT}:${HUGO_PORT}" \
+        "${HUGO_IMAGE}" hugo server --bind 0.0.0.0 --port "${HUGO_PORT}" >/dev/null
+}
+
+hugo_serve_stop(){
+    docker rm -f "${HUGO_CONTAINER}" >/dev/null 2>&1 || true
+}
+
+hugo_serve_wait(){
+    local url="http://localhost:${HUGO_PORT}/" i
+    for i in $(seq 1 60); do
+        if curl -fsS -o /dev/null "${url}"; then
+            return 0
+        fi
+        sleep 1
+    done
+    echo "error: hugo server did not answer at ${url} within 60s" >&2
+    docker logs "${HUGO_CONTAINER}" 2>&1 | tail -20 >&2 || true
+    return 1
+}

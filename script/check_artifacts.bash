@@ -1,0 +1,94 @@
+#!/bin/bash
+# Fail loudly if any published binary is missing, truncated, or a placeholder.
+#
+# A bare `hugo` build copies static/ verbatim and exits 0 even when a file is a
+# git-annex pointer, a git-lfs pointer or a zero-byte stub, so without this check
+# a broken resume deploys silently and the deploy is still reported green.
+#
+# Usage: script/check_artifacts.bash [dir]     (default: the repo itself)
+
+D_SCRIPT="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)"
+D_PROJ="$(CDPATH='' cd -- "${D_SCRIPT}/.." && pwd -P)"
+
+# relative path : expected leading magic bytes (hex) : minimum plausible size
+ARTIFACTS=(
+    "static/nathan-genetzky-resume.pdf:25504446:20000"
+    "static/nathan-genetzky-resume-bw.pdf:25504446:20000"
+    "static/nathan-genetzky-resume.docx.pdf:25504446:20000"
+    "static/nathan-genetzky-resume.docx:504b0304:5000"
+    "static/nathan-genetzky-resume.png:89504e47:50000"
+    "static/assets/images/portrait.png:89504e47:2000"
+    "static/apple-touch-icon.png:89504e47:1000"
+    "static/android-chrome-192x192.png:89504e47:1000"
+    "static/android-chrome-512x512.png:89504e47:1000"
+    "static/favicon-16x16.png:89504e47:200"
+    "static/favicon-32x32.png:89504e47:200"
+    "static/favicon.ico:00000100:500"
+)
+
+magic_of(){
+    od -An -tx1 -N4 -- "$1" | tr -d ' \n'
+}
+
+# Report the common placeholder formats by name; "bad magic" alone is a bad hint.
+placeholder_kind(){
+    local head
+    head="$(head -c 64 -- "$1" 2>/dev/null | tr -d '\0')"
+    case "${head}" in
+        /annex/objects/*|annex/objects/*) echo "a git-annex pointer (run: datalad get / git annex get)" ;;
+        "version https://git-lfs"*)       echo "a git-lfs pointer (run: git lfs pull)" ;;
+        *)                                echo "" ;;
+    esac
+}
+
+check_artifacts(){
+    local root entry path want_magic min_size size got_magic kind rc
+    root="${1-${D_PROJ}}"
+    rc=0
+
+    for entry in "${ARTIFACTS[@]}"; do
+        IFS=: read -r path want_magic min_size <<<"${entry}"
+        local f="${root}/${path}"
+
+        if [[ ! -f "${f}" ]]; then
+            echo "MISSING  ${path}" >&2
+            rc=1
+            continue
+        fi
+
+        kind="$(placeholder_kind "${f}")"
+        if [[ -n "${kind}" ]]; then
+            echo "STUB     ${path} is ${kind}" >&2
+            rc=1
+            continue
+        fi
+
+        size="$(stat -c %s -- "${f}")"
+        if (( size < min_size )); then
+            echo "TRUNCATED ${path} is ${size}B, expected at least ${min_size}B" >&2
+            rc=1
+            continue
+        fi
+
+        got_magic="$(magic_of "${f}")"
+        if [[ "${got_magic}" != "${want_magic}" ]]; then
+            echo "CORRUPT  ${path} starts with ${got_magic}, expected ${want_magic}" >&2
+            rc=1
+            continue
+        fi
+
+        printf 'ok       %s (%sB)\n' "${path}" "${size}"
+    done
+
+    if (( rc != 0 )); then
+        echo "error: published artifacts are not deployable" >&2
+    fi
+    return "${rc}"
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    # Bash Strict Mode
+    set -eu -o pipefail
+
+    check_artifacts "$@"
+fi
