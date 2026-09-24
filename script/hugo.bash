@@ -57,8 +57,8 @@ hugo_serve_stop(){
 }
 
 hugo_serve_wait(){
-    local url="http://localhost:${HUGO_PORT}/" i
-    for i in $(seq 1 60); do
+    local url="http://localhost:${HUGO_PORT}/"
+    for _ in $(seq 1 60); do
         if curl -fsS -o /dev/null --max-time 2 "${url}" 2>/dev/null; then
             return 0
         fi
