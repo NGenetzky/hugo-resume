@@ -53,6 +53,16 @@ check_artifacts(){
         IFS=: read -r path want_magic min_size <<<"${entry}"
         local f="${root}/${path}"
 
+        # Checked before -f, which follows the link and would otherwise report a
+        # valid-looking file. Hugo cannot follow symlinks under static/, so a
+        # locked git-annex file passes every other check and still breaks the build.
+        if [[ -L "${f}" ]]; then
+            echo "SYMLINK  ${path} is a symlink; annexed files must be unlocked" >&2
+            echo "         (git annex config --set annex.addunlocked true, then git annex unlock)" >&2
+            rc=1
+            continue
+        fi
+
         if [[ ! -f "${f}" ]]; then
             echo "MISSING  ${path}" >&2
             rc=1
