@@ -66,5 +66,17 @@ hugo_serve_wait(){
     done
     echo "error: hugo server did not answer at ${url} within 60s" >&2
     docker logs "${HUGO_CONTAINER}" 2>&1 | tail -20 >&2 || true
+    hugo_diagnose_mount
     return 1
+}
+
+# An unreadable bind mount looks like an empty directory rather than an error,
+# so the server starts, finds no site and exits. Snap-packaged docker only
+# bind-mounts paths under $HOME, which is the usual way to hit this.
+hugo_diagnose_mount(){
+    if ! docker run --rm -v "${D_HUGO_PROJ}":/src "${HUGO_IMAGE}" \
+            test -f /src/config/_default/config.toml >/dev/null 2>&1; then
+        echo "hint: docker cannot see ${D_HUGO_PROJ}; the bind mount is empty." >&2
+        echo "      snap-packaged docker only bind-mounts paths under \$HOME." >&2
+    fi
 }
