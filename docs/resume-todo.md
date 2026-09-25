@@ -79,13 +79,23 @@ rather than deleted if you ever want it back.
 ```bash
 bash script/setup.bash                       # once: init the theme submodule
 
-# Serve (no local hugo install needed)
-docker run --rm --network host -v "$PWD":/src -w /src \
-  klakegg/hugo:0.111.3 server --bind 0.0.0.0
-
 # Markdown post: copy the <pre> block from http://localhost:1313/md/
 # into content/post/nathan-genetzky-resume.md
+bash script/serve.bash                       # http://localhost:1313/
 
-bash script/build_capture.bash               # -> static/*.png, static/*.pdf
-bash script/build_docx.bash                  # -> static/*.docx, *.docx.pdf (needs pandoc)
+bash script/build_artifacts.bash             # everything below, then verifies it
+bash script/build_site.bash                  # -> public/
 ```
+
+`build_artifacts.bash` owns the server lifecycle, so it does not need
+`serve.bash` running. Individually:
+
+| Script | Produces |
+|---|---|
+| `script/build_capture.bash` | `static/nathan-genetzky-resume.{png,pdf}`, `-bw.pdf` (needs a running server) |
+| `script/build_docx.bash` | `static/nathan-genetzky-resume.docx`, `.docx.pdf` |
+| `script/check_artifacts.bash` | nothing; fails if an artifact is missing, stubbed or corrupt |
+
+Hugo is pinned in [script/hugo.bash](../script/hugo.bash) and run from a
+container, so no local install is needed. GitHub Actions runs the same scripts —
+see [.github/workflows/build.yml](../.github/workflows/build.yml).
