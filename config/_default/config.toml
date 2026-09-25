@@ -14,5 +14,5 @@ disableSitemap = false
 disable404 = true
 disableKinds = [
     "taxonomy",
-    "taxonomyTerm"
+    "term"
 ]
