@@ -10,6 +10,11 @@ and how this repo meets it.
 captures of the two-column website: a parser reads their sidebar and main
 column interleaved line by line, so never submit those to an ATS.
 
+The captures deliberately keep the sidebar; they are for people. They still
+follow the ATS copy's content and print limits: every section, at most 2
+sheets, body text of 10pt or more. [capture.js](../script/capture.js) shrinks
+the type to fit the sheet limit and warns if that takes it under 10pt.
+
 ## Confidence levels
 
 - **Established:** widely documented in ATS vendor and recruiter guidance, and
