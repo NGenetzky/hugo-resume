@@ -8,6 +8,7 @@
 # Usage: script/check_artifacts.bash [dir]
 #   dir defaults to static/. Pass public/ to check a built site, where the same
 #   files appear at the same relative paths.
+#   DOCX_MIN_PT / DOCX_MAX_PAGES bound the ATS copy's body size and length.
 
 D_SCRIPT="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)"
 D_PROJ="$(CDPATH='' cd -- "${D_SCRIPT}/.." && pwd -P)"
@@ -92,6 +93,14 @@ check_artifacts(){
 
         printf 'ok       %s (%sB)\n' "${path}" "${size}"
     done
+
+    # Only meaningful once the files are known to be real documents.
+    if (( rc == 0 )); then
+        python3 "${D_SCRIPT}/check_docx_fonts.py" \
+            "${root}/nathan-genetzky-resume.docx" \
+            "${root}/nathan-genetzky-resume.docx.pdf" \
+            "${DOCX_MIN_PT:-10}" "${DOCX_MAX_PAGES:-2}" || rc=1
+    fi
 
     if (( rc != 0 )); then
         echo "error: published artifacts are not deployable" >&2

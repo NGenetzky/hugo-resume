@@ -41,6 +41,12 @@ build_docx(){
 
     cd "${D_PROJ}"
 
+    case "${DOCX_FONTSIZE}" in
+        10pt|11pt|12pt) ;;
+        *) echo "error: DOCX_FONTSIZE must be 10pt, 11pt or 12pt (LaTeX article ignores ${DOCX_FONTSIZE})" >&2
+           return 1 ;;
+    esac
+
     # Word defaults to 1in margins and pandoc cannot override them (or the body
     # font) from the command line, so patch them into a copy of its reference.
     pandoc_run --print-default-data-file reference.docx > .reference-base.docx
