@@ -54,6 +54,12 @@ hugo_serve_stop(){
     if [[ -n "${pid}" && "${pid}" != "0" ]]; then
         kill -TERM "${pid}" 2>/dev/null || true
     fi
+    # --rm reaps asynchronously; a restart before then collides on the name.
+    for _ in $(seq 1 20); do
+        docker inspect "${HUGO_CONTAINER}" >/dev/null 2>&1 || return 0
+        sleep 0.5
+    done
+    echo "warning: container ${HUGO_CONTAINER} is still present after stop" >&2
 }
 
 hugo_serve_wait(){
