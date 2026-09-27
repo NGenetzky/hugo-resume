@@ -9,16 +9,16 @@
     {{ partial "summary.html" . }}
 {{ end }}
 
+{{ if .Site.Params.skills.enable }}
+    {{ partial "skills.html" . }}
+{{ end }}
+
 {{ if .Site.Params.experiences.enable }}
 {{ partial "experiences.html" . }}
 {{ end }}
 
 {{ if .Site.Params.projects.enable }}
 {{ partial "projects.html" . }}
-{{ end }}
-
-{{ if .Site.Params.skills.enable }}
-    {{ partial "skills.html" . }}
 {{ end }}
 
     </div><!--//main-body-->
