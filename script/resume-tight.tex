@@ -7,7 +7,14 @@
 \titlespacing{\subsubsection}{0pt}{4pt}{1pt}
 \setlength{\parskip}{1pt}
 \raggedright
+% Sans body to match the docx's Calibri; Carlito (the Calibri clone) is not in the image.
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{345A8A}
+\titleformat{\subsection}{\large\bfseries\color{accent}}{}{0pt}{}[{\color{accent!40}\titlerule}]
+\titleformat{\subsubsection}{\normalsize\bfseries}{}{0pt}{}
+\AtBeginDocument{\hypersetup{colorlinks, urlcolor=accent, linkcolor=accent}}
 % article's \maketitle reserves several lines of space around the name.
 \makeatletter
-\renewcommand{\maketitle}{{\centering\LARGE\bfseries\@title\par}\vspace{2pt}}
+\renewcommand{\maketitle}{{\centering\LARGE\bfseries\color{accent}\@title\par}\vspace{2pt}}
 \makeatother
