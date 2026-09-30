@@ -10,6 +10,7 @@
 #
 # Set HUGO=hugo to use a local install instead of the pinned image.
 
+# Duplicated in docker-compose.yml and netlify.toml; keep all three in step.
 HUGO_VERSION="${HUGO_VERSION:-0.111.3}"
 HUGO_IMAGE="${HUGO_IMAGE:-hugomods/hugo:exts-${HUGO_VERSION}}"
 HUGO_PORT="${HUGO_PORT:-1313}"

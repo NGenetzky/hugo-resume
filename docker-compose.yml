@@ -1,6 +1,6 @@
 # Local preview. Equivalent to script/serve.bash, which is what CI uses.
 #
-# HUGO_VERSION is duplicated from script/hugo.bash; keep the two in step.
+# HUGO_VERSION is duplicated from script/hugo.bash (and netlify.toml); keep them in step.
 #   docker compose up
 #   HUGO_VERSION=0.128.2 docker compose up
 
