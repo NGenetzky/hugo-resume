@@ -23,34 +23,24 @@ naming the silicon. Naming it makes the claim concrete and interview-ready.
 - [ ] Confirm the platform and mechanism — likely i.MX8 HABv4 / AHAB, but verify.
 - [ ] Update the bullet to read "…on <platform> using <mechanism>".
 
-## 3. Add the three new skill bars
+## 3. Grow the skills list
 
-Recommended in the resume feedback but not added, because
-`skills.list.level` must be an `NN%` string and the values were deferred.
+Skills are condensed keyword groups (`[[skills.groups]]` in params.toml); the
+percentage bars were dropped because ATS parsers ignore them and a bare
+percentage invites the question "90% of what?". Adding a skill is one more
+string in a group's `items`, or one more `[[skills.groups]]` block.
 
-Existing bars for calibration:
+Only list what the Experience section can back up.
 
-| Skill | Level |
-|---|---|
-| Yocto (Build System, Embedded Distro, BSP Support) | 90% |
-| Developer Tools (Docker, Jenkins, Git, GDB, JTAG/SWD) | 85% |
-| Terminal Workflow (Vim, GNU tools, shell scripting) | 85% |
-| Linux Kernel (Drivers, Config, BSP) | 55% |
-| Python Middleware (DBus, REST, GObject, threading) | 35% |
-| FPGA Development (SW Interface, Reusable Verilog, Automated Builds) | 25% |
+- [ ] Add OTA/cybersecurity keywords you would defend in an interview.
 
-- [ ] `OTA & Update Systems (RAUC, A/B, secure boot fallback)` — `__%`
-- [ ] `Product Cybersecurity (EN 18031, secure boot, SBOM)` — `__%`
+Deliberately absent: Balena, Mender, OSTree and the custom update agent. They
+are self-directed personal work, not professional experience, and the Skills
+section reads as a professional claim. They are represented instead by the
+"Personal projects, self-directed" entry in Experience.
 
-Deliberately not suggested: a "Device Cloud Platforms (Balena)" bar. Balena,
-Mender, OSTree and the custom update agent are self-directed personal work, not
-professional experience, and a skills bar reads as a professional claim. They
-are represented instead by the "Personal projects, self-directed" entry in
-Experiences.
-
-Note: the current PDF fills one page with no room to spare. Adding two bars
-will likely push it over. Options: drop the two weakest existing bars
-(Python Middleware 35%, FPGA 25%), or trim the Vaddio/Dojo Five bullets.
+The docx.pdf must stay within 2 pages with body text of at least 10pt (11pt is
+the default); `script/check_docx_fonts.py` fails the build if it does not.
 
 ## 4. Name agricultural machine types or operations
 
@@ -79,13 +69,23 @@ rather than deleted if you ever want it back.
 ```bash
 bash script/setup.bash                       # once: init the theme submodule
 
-# Serve (no local hugo install needed)
-docker run --rm --network host -v "$PWD":/src -w /src \
-  klakegg/hugo:0.111.3 server --bind 0.0.0.0
-
 # Markdown post: copy the <pre> block from http://localhost:1313/md/
 # into content/post/nathan-genetzky-resume.md
+bash script/serve.bash                       # http://localhost:1313/
 
-bash script/build_capture.bash               # -> static/*.png, static/*.pdf
-bash script/build_docx.bash                  # -> static/*.docx, *.docx.pdf (needs pandoc)
+bash script/build_artifacts.bash             # everything below, then verifies it
+bash script/build_site.bash                  # -> public/
 ```
+
+`build_artifacts.bash` owns the server lifecycle, so it does not need
+`serve.bash` running. Individually:
+
+| Script | Produces |
+|---|---|
+| `script/build_capture.bash` | `static/nathan-genetzky-resume.{png,pdf}`, `-bw.pdf` (needs a running server) |
+| `script/build_docx.bash` | `static/nathan-genetzky-resume.docx`, `.docx.pdf` |
+| `script/check_artifacts.bash` | nothing; fails if an artifact is missing, stubbed or corrupt |
+
+Hugo is pinned in [script/hugo.bash](../script/hugo.bash) and run from a
+container, so no local install is needed. GitHub Actions runs the same scripts —
+see [.github/workflows/build.yml](../.github/workflows/build.yml).

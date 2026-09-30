@@ -2,3 +2,7 @@ public/
 .hugo_build.lock
 .scratch/
 .reference*.docx
+
+# Hugo's asset cache. Empty today, but image processing would fill it with
+# binaries that nothing is watching for.
+resources/_gen/

@@ -2,12 +2,19 @@
 \usepackage{enumitem}
 \setlist[itemize]{nosep, topsep=1pt, partopsep=0pt, parsep=0pt, leftmargin=1.1em}
 \usepackage{titlesec}
-% Pandoc maps #### (job title) to \paragraph, which article renders run-in, so
-% the job title and employer collide: "Senior Software EngineerPTx, AGCO's...".
-\titleformat{\paragraph}[hang]{\normalfont\bfseries}{}{0pt}{}
-\titlespacing{\paragraph}{0pt}{5pt}{1pt}
 \titlespacing{\section}{0pt}{6pt}{2pt}
 \titlespacing{\subsection}{0pt}{5pt}{1pt}
 \titlespacing{\subsubsection}{0pt}{4pt}{1pt}
 \setlength{\parskip}{1pt}
 \raggedright
+% Sans body to match the docx's Calibri; Carlito (the Calibri clone) is not in the image.
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{345A8A}
+\titleformat{\subsection}{\large\bfseries\color{accent}}{}{0pt}{}[{\color{accent!40}\titlerule}]
+\titleformat{\subsubsection}{\normalsize\bfseries}{}{0pt}{}
+\AtBeginDocument{\hypersetup{colorlinks, urlcolor=accent, linkcolor=accent}}
+% article's \maketitle reserves several lines of space around the name.
+\makeatletter
+\renewcommand{\maketitle}{{\centering\LARGE\bfseries\color{accent}\@title\par}\vspace{2pt}}
+\makeatother

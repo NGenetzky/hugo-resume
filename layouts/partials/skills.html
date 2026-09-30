@@ -1,0 +1,8 @@
+            <section class="skills-section section">
+                <h2 class="section-title"><i class="fa {{ .Site.Params.skills.icon }}"></i>{{ i18n "skills" }}</h2>
+                <ul class="list-unstyled skillset">
+				{{ range .Site.Params.skills.groups }}
+                    <li><strong>{{ .name }}:</strong> {{ delimit .items ", " }}</li>
+                {{ end }}
+                </ul>
+            </section><!--//skills-section-->
