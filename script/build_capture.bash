@@ -36,6 +36,7 @@ IMAGE="${CAPTURE_IMAGE:-zenika/alpine-chrome:with-puppeteer}"
 capture(){
     docker run --rm --network host \
         -u "$(id -u):$(id -g)" \
+        -e HOME=/tmp \
         -e CAPTURE_URL="$1" \
         -e CAPTURE_OUT="$2" \
         -e CAPTURE_SKIP_PNG="${3:-0}" \
