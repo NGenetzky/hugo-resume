@@ -64,6 +64,7 @@ const PAGE_H_IN = 11;
   console.log(`content: ${LAYOUT_WIDTH}x${layout.height} at font-scale ${fontScale}`);
 
   if (!SKIP_PNG) {
+    await page.setViewport({ width: LAYOUT_WIDTH, height: 600, deviceScaleFactor: 2 });
     await page.screenshot({ path: `/out/${OUT}.png`, fullPage: true });
   }
 
