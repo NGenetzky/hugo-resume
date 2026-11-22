@@ -28,8 +28,13 @@
         [[contact.list]]
         class = "email"
         icon = "fa-envelope"
-        url = "mailto: nathan@genetzky.us"
+        url = "mailto:nathan@genetzky.us"
         title = "nathan@genetzky.us"
+
+        [[contact.list]]
+        class = "location"
+        icon = "fa-map-marker"
+        title = "Minneapolis, MN"
 
         # [[contact.list]]
         # class = "phone"
@@ -73,14 +78,9 @@
         title = "Education"
 
         [[education.list]]
-        degree = "BS Electrical Engineering"
+        degree = "BS Electrical Engineering, Minor in Software Engineering"
         college = "South Dakota State University"
-        dates = "2012 - 2017"
-
-        [[education.list]]
-        degree = "Minor Software Engineering"
-        college = "South Dakota State University"
-        dates = "2012 - 2017"
+        dates = "2012 – 2017"
 
     # Languages section
     [language]
@@ -151,24 +151,25 @@
     [summary]
         enable = true
         icon = "fa-user"
-        title = "Career Profile"
+        title = "Summary"
         summary = """
 - Embedded Linux engineer with ~9 years taking connected products from board
   bring-up through secure, field-updatable deployment.
 - Yocto distributions, BSP and kernel work, CI/CD, and hardware-in-the-loop test.
 - Product cybersecurity (EN 18031 / EU RED, secure boot, SBOM) and OTA update systems.
 - Electrical Engineering graduate with honors distinction.
+- Open to hybrid and remote roles.
 """
 
     # Experiences section
     [experiences]
         enable = true
         icon = "fa-briefcase"
-        title = "Experiences"
+        title = "Experience"
 
         [[jobs.list]]
         position = "Senior Software Engineer"
-        dates = "04.2024 - PRESENT"
+        dates = "Apr 2024 – Present"
         company = "PTx, AGCO's Precision Agriculture Technology business"
         details = """
 - Develop embedded Linux platforms for agricultural equipment electronics;
@@ -190,8 +191,8 @@
 
         [[jobs.list]]
         position = "Senior Software Engineer"
-        dates = "12.2021 - 04.2024"
-        company = "ESW Team at Appareo Systems (acquired by AGCO, 01.2022)"
+        dates = "Dec 2021 – Apr 2024"
+        company = "ESW Team at Appareo Systems (acquired by AGCO, Jan 2022)"
         details = """
 - Performed board bring-up for custom PCB with heterogeneous SOC (IMX8DXL),
   debugging with JTAG/SWD, GDB, logic analyzer, and oscilloscope.
@@ -204,7 +205,7 @@
 
         [[jobs.list]]
         position = "Software Engineer 1"
-        dates = "05.2017 - 12.2021"
+        dates = "May 2017 – Dec 2021"
         company = "System Team at Vaddio"
         details = """
 - Working with FPGA and python developers to create an integrated embedded
@@ -216,7 +217,7 @@ system that routes audio and video signals in professionally built AV systems.
 
         [[jobs.list]]
         position = "Software Engineer"
-        dates = "11.2018 - 12.2021"
+        dates = "Nov 2018 – Dec 2021"
         company = "Dojo Five"
         details = """
 - Develop embedded software for Particle, Nordic, and STM32 microcontrollers
@@ -226,7 +227,7 @@ system that routes audio and video signals in professionally built AV systems.
 
         [[jobs.list]]
         position = "Embedded Linux and OTA Experiments"
-        dates = "ONGOING"
+        dates = "Ongoing"
         company = "Personal projects, self-directed"
         details = """
 - Compared Mender and OSTree against RAUC to understand A/B, atomic, and
@@ -318,35 +319,31 @@ system that routes audio and video signals in professionally built AV systems.
         tagline = "Firmware for micro controllers sold by particle.io for use with wifi or cellular cloud devices."
 
 
-    # Skills section
+    # Skills section: one line per group. Add a skill by appending to `items`.
     [skills]
         enable = true
         icon = "fa-rocket"
-        title = "Skills & Proficiency"
+        title = "Skills"
 
-        [[skills.list]]
-        skill = "Yocto (Build System, Embedded Distro, BSP Support)"
-        level = "90%"
+        [[skills.groups]]
+        name = "Embedded Linux"
+        items = ["Yocto Project", "BitBake", "BSP", "Linux kernel drivers and config", "U-Boot", "i.MX8 (IMX8DXL)", "cross-compilation SDKs"]
 
-        [[skills.list]]
-        skill = "Developer Tools (Docker, Jenkins, Git, GDB, JTAG/SWD)"
-        level = "85%"
+        [[skills.groups]]
+        name = "Security & Updates"
+        items = ["secure boot", "signed firmware images", "threat modeling", "secure element key management", "SBOM", "EN 18031 / EU RED", "CRA", "RAUC OTA", "A/B partitioning"]
 
-        [[skills.list]]
-        skill = "Terminal Workflow (Vim, GNU tools, shell scripting)"
-        level = "85%"
+        [[skills.groups]]
+        name = "Build, CI & Test"
+        items = ["Docker", "Jenkins", "Git", "GitOps", "Gitflow", "HIL testing", "Labgrid"]
 
-        [[skills.list]]
-        skill = "Linux Kernel (Drivers, Config, BSP)"
-        level = "55%"
+        [[skills.groups]]
+        name = "Debug & Hardware"
+        items = ["JTAG/SWD", "GDB", "logic analyzer", "oscilloscope", "CAN bus", "cellular modems", "WiFi", "Bluetooth/BLE", "STM32", "nRF52", "FPGA/Verilog"]
 
-        [[skills.list]]
-        skill = "Python Middleware (DBus, REST, GObject, threading)"
-        level = "35%"
-
-        [[skills.list]]
-        skill = "FPGA Development (SW Interface, Reusable Verilog, Automated Builds)"
-        level = "25%"
+        [[skills.groups]]
+        name = "Tools & Middleware"
+        items = ["Vim", "GNU tools", "shell scripting", "DBus", "REST", "GObject", "Jira", "Puppet"]
 
 
     # Footer section

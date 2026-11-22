@@ -1,0 +1,15 @@
+# Overrides the theme's headings with the standard section names ATS parsers look for.
+- id: education
+  translation: Education
+- id: experiences
+  translation: Experience
+- id: interests
+  translation: Interests
+- id: language
+  translation: Languages
+- id: projects
+  translation: Projects
+- id: skills
+  translation: Skills
+- id: summary
+  translation: Summary

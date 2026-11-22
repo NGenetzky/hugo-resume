@@ -5,8 +5,8 @@
 # packages the tight layout needs) so output does not depend on whatever TeX
 # Live is installed locally. Set PANDOC=pandoc to use a local install instead.
 #
-# Tunables: DOCX_MARGIN (inches), DOCX_FONTSIZE (10pt/11pt/12pt),
-# DOCX_TWOCOLUMN=1, PANDOC_IMAGE.
+# Tunables: DOCX_MARGIN (inches), DOCX_FONTSIZE (10pt/11pt/12pt; sets the body
+# size of both the docx and the pdf), DOCX_TWOCOLUMN=1, PANDOC_IMAGE.
 #
 # On DOCX_TWOCOLUMN: a two-column pdf extracts to garbled text, because
 # pdftotext and most applicant tracking systems interleave the columns line by
@@ -19,7 +19,7 @@ DEFAULT_MD="content/post/nathan-genetzky-resume.md"
 DEFAULT_DOCX="static/nathan-genetzky-resume.docx"
 
 DOCX_MARGIN="${DOCX_MARGIN:-0.75}"
-DOCX_FONTSIZE="${DOCX_FONTSIZE:-10pt}"
+DOCX_FONTSIZE="${DOCX_FONTSIZE:-11pt}"
 DOCX_TWOCOLUMN="${DOCX_TWOCOLUMN:-0}"
 PANDOC_IMAGE="${PANDOC_IMAGE:-pandoc/extra:3.1}"
 
@@ -41,11 +41,17 @@ build_docx(){
 
     cd "${D_PROJ}"
 
-    # Word defaults to 1in margins and pandoc cannot override them from the
-    # command line, so patch the geometry into a copy of its reference document.
+    case "${DOCX_FONTSIZE}" in
+        10pt|11pt|12pt) ;;
+        *) echo "error: DOCX_FONTSIZE must be 10pt, 11pt or 12pt (LaTeX article ignores ${DOCX_FONTSIZE})" >&2
+           return 1 ;;
+    esac
+
+    # Word defaults to 1in margins and pandoc cannot override them (or the body
+    # font) from the command line, so patch them into a copy of its reference.
     pandoc_run --print-default-data-file reference.docx > .reference-base.docx
     python3 "${D_SCRIPT}/make_reference_docx.py" \
-        .reference-base.docx .reference.docx "${DOCX_MARGIN}" >/dev/null
+        .reference-base.docx .reference.docx "${DOCX_MARGIN}" "${DOCX_FONTSIZE%pt}" >/dev/null
 
     latex_opts=(
         -V "geometry:margin=${DOCX_MARGIN}in"

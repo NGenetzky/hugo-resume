@@ -1,61 +1,59 @@
 <head><title>{{$.Page.Params.title}}</title></head>
 <pre><code>
 ---
-title: "{{ $.Page.Params.title }}"
-subtitle: "{{ $.Page.Params.subtitle }}"
-author: "{{ $.Site.Params.profile.name }}"
-date: "{{ dateFormat "2006-01-02" $.Page.Params.date  }}"
+title: "{{ $.Site.Params.profile.name }}"
+publishDate: "{{ dateFormat "2006-01-02" $.Page.Params.date  }}"
 ---
+
+## Contact
+
+{{ $contact := slice }}{{ range $.Site.Params.contact.list }}{{ $contact = $contact | append (cond (isset . "url") (printf "[%s](%s)" .title .url) .title) }}{{ end -}}
+{{ delimit $contact " | " }}
 
 ## {{ $.Site.Params.summary.title }}
 
 {{ $.Site.Params.summary.summary }}
-## Contact
-{{ range $.Site.Params.contact.list }}
-- [{{.title}}]({{.url}})
+## {{ $.Site.Params.skills.title }}
+{{ range $.Site.Params.skills.groups }}
+- **{{ .name }}:** {{ delimit .items ", " }}
 {{- end }}
+
+## {{ $.Site.Params.language.title }}
+{{ $langs := slice }}{{ range $.Site.Params.language.list }}{{ $langs = $langs | append (printf "%s (%s)" .language .level) }}{{ end }}
+- {{ delimit $langs ", " }}
 
 ## {{ $.Site.Params.experiences.title }}
 
 {{- range $.Site.Params.jobs.list }}
-#### {{.position}}
+
+### {{.position}}
 
 {{.company}} ({{.dates}})
 
 {{.details}}
 {{- end }}
-## {{ $.Site.Params.projects.title }}
-
-{{- range $.Site.Params.projects.list }}
-
-#### {{.title}}
-
-- {{.tagline}}
-- [{{.url}}]()
-
-{{- end }}
-
-### {{ $.Site.Params.skills.title }}
-{{ range $.Site.Params.skills.list }}
-- {{.skill}} ({{.level}})
-{{- end }}
-
-### {{ $.Site.Params.education.title }}
+## {{ $.Site.Params.education.title }}
 
 {{- range $.Site.Params.education.list }}
 
-##### {{.degree}}
+### {{.degree}}
 
 {{.college}} ({{.dates}})
 
 {{- end }}
 
-### Lauguages
-{{ range $.Site.Params.language.list }}
-- {{.language}} ({{.level}})
+## {{ $.Site.Params.projects.title }}
+
+{{- range $.Site.Params.projects.list }}
+
+### {{.title}}
+
+- {{.tagline}}
+- &lt;{{.url}}&gt;
+
 {{- end }}
 
-### {{ $.Site.Params.interests.title }}
+## {{ $.Site.Params.interests.title }}
 {{ range $.Site.Params.interests.list }}
 - {{.interest}}
 {{- end }}

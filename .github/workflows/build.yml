@@ -1,0 +1,69 @@
+name: build
+
+# Builds the site and regenerates the resume artifacts. The committed copies in
+# static/ stay because Netlify's own build serves them; only commit regenerated
+# binaries when the content actually changed. Deploys are draft-only until the
+# production cutover.
+
+on:
+  push:
+    branches: [master, 'feature/**']
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Read in `if:` conditions below; steps are skipped when the secret is unset
+      # so the workflow is still useful before the Netlify secrets exist.
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # config.toml sets theme = "hugo-orbit-theme", which is a submodule.
+          submodules: true
+
+      - name: Regenerate resume artifacts
+        run: script/build_artifacts.bash
+
+      - name: Build site
+        run: script/build_site.bash
+
+      - name: Upload resume artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-artifacts
+          path: |
+            static/nathan-genetzky-resume.png
+            static/nathan-genetzky-resume.pdf
+            static/nathan-genetzky-resume-bw.pdf
+            static/nathan-genetzky-resume.docx
+            static/nathan-genetzky-resume.docx.pdf
+          if-no-files-found: error
+
+      - name: Upload site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: public/
+          if-no-files-found: error
+
+      - name: Deploy draft to Netlify
+        if: env.NETLIFY_AUTH_TOKEN != '' && env.NETLIFY_SITE_ID != ''
+        run: |
+          npx --yes netlify-cli@17 deploy \
+            --no-build \
+            --dir=public \
+            --message "draft ${GITHUB_REF_NAME}@${GITHUB_SHA::7}"
+
+      - name: Netlify secrets missing
+        if: env.NETLIFY_AUTH_TOKEN == '' || env.NETLIFY_SITE_ID == ''
+        run: |
+          echo "::notice::Skipped Netlify deploy. Set the NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID repository secrets to enable it."
